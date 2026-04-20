@@ -1,0 +1,1538 @@
+-- Obfuscated with LuaU Obfuscator
+local GlQjD0jO = game:GetService((string.char(80,108,97,121,101,114,115)))
+local IjDGiljG = game:GetService((string.char(82,101,112,108,105,99,97,116,101,100)..string.char(83,116,111,114,97,103,101)))
+local j1jljQ00 = game:GetService((string.char(72,116,116,112,83,101,114,118,105,99)..string.char(101)))
+local CClj1lDj = GlQjD0jO.LocalPlayer
+local DiljOljQ = CClj1lDj.PlayerScripts
+local jD01OCDi = DiljOljQ.Controllers
+local JiJ111JQ = require(IjDGiljG.Modules:WaitForChild((string.char(69,110,117,109,76,105,98,114,97,114)..string.char(121)), 10))
+if JiJ111JQ then JiJ111JQ:WaitForEnumBuilder() end
+local GCOI11Gl = require(IjDGiljG.Modules:WaitForChild((string.char(67,111,115,109,101,116,105,99,76,105)..string.char(98,114,97,114,121)), 10))
+local Ii11IIl1 = require(IjDGiljG.Modules:WaitForChild((string.char(73,116,101,109,76,105,98,114,97,114)..string.char(121)), 10))
+local _aff3349ae="y32zrk";local _4b5574422e=#_aff3349ae; local DjjGClDD = require(jD01OCDi:WaitForChild((string.char(80,108,97,121,101,114,68,97,116,97)..string.char(67,111,110,116,114,111,108,108,101,114)), 10))
+local Q1QDlDjI, CQlQ0GGQ = {}, {}
+local jllIliJQ, lCllD0li = nil, nil
+local jlO11GiG = nil
+
+local function Q01llJD0(jDiGiil1, l0DljjQ0, J0ODQ1iQ)
+    do end; local OiDJiC1j = GCOI11Gl.Cosmetics[jDiGiil1]
+    if not OiDJiC1j then return nil end
+    local Q1illGQG = {}
+    for lODDCCQJ, JJOCiijl in pairs(OiDJiC1j) do Q1illGQG[lODDCCQJ] = JJOCiijl end
+    Q1illGQG.Name = jDiGiil1
+    Q1illGQG.Type = Q1illGQG.Type or l0DljjQ0
+    Q1illGQG.Seed = Q1illGQG.Seed or math.random(1, 1000000)
+    if JiJ111JQ then
+        local _b1eef2afe77={}; local IG1DJGJQ, DDJCjGGD = pcall(JiJ111JQ.ToEnum, JiJ111JQ, jDiGiil1)
+        if IG1DJGJQ and DDJCjGGD then Q1illGQG.Enum, Q1illGQG.ObjectID = DDJCjGGD, Q1illGQG.ObjectID or DDJCjGGD end
+    end
+    if J0ODQ1iQ then
+        if J0ODQ1iQ.inverted ~= nil then Q1illGQG.Inverted = J0ODQ1iQ.inverted end
+        if J0ODQ1iQ.favoritesOnly ~= nil then Q1illGQG.OnlyUseFavorites = J0ODQ1iQ.favoritesOnly end
+    end
+    do end; return Q1illGQG
+end
+
+local OQ0J0J1l = (string.char(117,110,108,111,99,107,97,108,108,47)..string.char(99,111,110,102,105,103,46,106,115,111)..string.char(110))
+local function DllJiII1()
+    if not writefile then return end
+    pcall(function()
+        local jJJQlGJj = {Q1QDlDjI = {}, CQlQ0GGQ = CQlQ0GGQ}
+        for G0IOilIQ, DIIiQI0j in pairs(Q1QDlDjI) do
+            jJJQlGJj.Q1QDlDjI[G0IOilIQ] = {}
+            for l0DljjQ0, DCj0jCQl in pairs(DIIiQI0j) do
+                if DCj0jCQl and DCj0jCQl.Name then
+                    jJJQlGJj.Q1QDlDjI[G0IOilIQ][l0DljjQ0] = {
+                        jDiGiil1 = DCj0jCQl.Name, seed = DCj0jCQl.Seed, inverted = DCj0jCQl.Inverted
+                    }
+                end
+            end
+        end
+        local _73a87fcf=6790; makefolder((string.char(117,110,108,111,99,107,97,108,108)))
+        writefile(OQ0J0J1l, j1jljQ00:JSONEncode(jJJQlGJj))
+    local _0c5063b6367=(877+1754-877)/877; end)
+local _57b00da764={}; end
+
+local function ilO1IIGl()
+    local _f38a2dd="nkt2cn";local _5d0be6=#_f38a2dd; if not readfile or not isfile or not isfile(OQ0J0J1l) then return end
+    pcall(function()
+        local jJJQlGJj = j1jljQ00:JSONDecode(readfile(OQ0J0J1l))
+        if jJJQlGJj.Q1QDlDjI then
+            for G0IOilIQ, DIIiQI0j in pairs(jJJQlGJj.Q1QDlDjI) do
+                Q1QDlDjI[G0IOilIQ] = {}
+                for l0DljjQ0, DCj0jCQl in pairs(DIIiQI0j) do
+                    local _d903bcec=not not true; local GGjJCGCQ = Q01llJD0(DCj0jCQl.jDiGiil1, l0DljjQ0, {inverted = DCj0jCQl.inverted})
+                    if GGjJCGCQ then GGjJCGCQ.Seed = DCj0jCQl.seed Q1QDlDjI[G0IOilIQ][l0DljjQ0] = GGjJCGCQ end
+                end
+            end
+        end
+        CQlQ0GGQ = jJJQlGJj.CQlQ0GGQ or {}
+    end)
+end
+
+local _f22431fafc=7116; 
+GCOI11Gl.OwnsCosmeticNormally = function(self, CiQ0lGGj, jDiGiil1, G0IOilIQ)
+    
+    local OGJ1lCG0 = GCOI11Gl.Cosmetics[jDiGiil1]
+    if OGJ1lCG0 and OGJ1lCG0.Type == (string.char(83,107,105,110)) then
+        return true  
+    end
+    return false  
+end
+
+GCOI11Gl.OwnsCosmeticUniversally = function(self, CiQ0lGGj, jDiGiil1, G0IOilIQ)
+    local _6ee831ce615=(668+1336-668)/668; local OGJ1lCG0 = GCOI11Gl.Cosmetics[jDiGiil1]
+    if OGJ1lCG0 and OGJ1lCG0.Type == (string.char(83,107,105,110)) then
+        return true
+    end
+    return false
+end
+
+GCOI11Gl.OwnsCosmeticForWeapon = function(self, CiQ0lGGj, jDiGiil1, G0IOilIQ)
+    local OGJ1lCG0 = GCOI11Gl.Cosmetics[jDiGiil1]
+    if OGJ1lCG0 and OGJ1lCG0.Type == (string.char(83,107,105,110)) then
+        return true
+    end
+    return false
+end
+
+local _6938a6a="3elxb5";local _092c515e=#_6938a6a; 
+local OilQiOjQ = GCOI11Gl.OwnsCosmetic
+GCOI11Gl.OwnsCosmetic = function(self, CiQ0lGGj, jDiGiil1, G0IOilIQ)
+    local _368497a5b60=not not true; if jDiGiil1:find((string.char(77,73,83,83,73,78,71,95))) then 
+        local _0d77b6=not not true; return OilQiOjQ(self, CiQ0lGGj, jDiGiil1, G0IOilIQ) 
+    end
+    local OGJ1lCG0 = GCOI11Gl.Cosmetics[jDiGiil1]
+    if OGJ1lCG0 and OGJ1lCG0.Type == (string.char(83,107,105,110)) then
+        return true
+    local _037b288="5wwx3o";local _c8275af523=#_037b288; end
+    return OilQiOjQ(self, CiQ0lGGj, jDiGiil1, G0IOilIQ)
+end
+
+
+local IQDOljOJ = DjjGClDD.Get
+DjjGClDD.Get = function(self, lODDCCQJ)
+    local Q1illGQG = IQDOljOJ(self, lODDCCQJ)
+    local _aa92b17={}; if lODDCCQJ == (string.char(67,111,115,109,101,116,105,99,73,110)..string.char(118,101,110,116,111,114,121)) then
+        local IjlID1CC = {}
+        if Q1illGQG then 
+            for jCGGDl0I, OllCJQCj in pairs(Q1illGQG) do 
+                
+                local OGJ1lCG0 = GCOI11Gl.Cosmetics[jCGGDl0I]
+                if OGJ1lCG0 and OGJ1lCG0.Type == (string.char(83,107,105,110)) then
+                    local _174256fb39=(379+758-379)/379; IjlID1CC[jCGGDl0I] = OllCJQCj
+                local _29751deeae2={}; end
+            end 
+        end
+        return setmetatable(IjlID1CC, {
+            __index = function(Jil1OOGQ, jCGGDl0I)
+                local OGJ1lCG0 = GCOI11Gl.Cosmetics[jCGGDl0I]
+                if OGJ1lCG0 and OGJ1lCG0.Type == (string.char(83,107,105,110)) then
+                    return true  
+                end
+                return nil
+            end
+        })
+    end
+    if lODDCCQJ == (string.char(70,97,118,111,114,105,116,101,100,67)..string.char(111,115,109,101,116,105,99,115)) then
+        local _f4d72235ed=5259; local JlCljOjI = Q1illGQG and table.clone(Q1illGQG) or {}
+        for G0IOilIQ, IJJlJOIO in pairs(CQlQ0GGQ) do
+            JlCljOjI[G0IOilIQ] = JlCljOjI[G0IOilIQ] or {}
+            for jDiGiil1, CIOGi00I in pairs(IJJlJOIO) do 
+                local _06f30302d=(493+986-493)/493; local OGJ1lCG0 = GCOI11Gl.Cosmetics[jDiGiil1]
+                if OGJ1lCG0 and OGJ1lCG0.Type == (string.char(83,107,105,110)) then
+                    JlCljOjI[G0IOilIQ][jDiGiil1] = CIOGi00I
+                end
+            end
+        end
+        return JlCljOjI
+    end
+    return Q1illGQG
+end
+
+local O1QO11QO = DjjGClDD.GetWeaponData
+DjjGClDD.GetWeaponData = function(self, DQCGl1Oi)
+    local Q1illGQG = O1QO11QO(self, DQCGl1Oi)
+    if not Q1illGQG then return nil end
+    
+    local I1ij0jl1 = {}
+    for lODDCCQJ, JJOCiijl in pairs(Q1illGQG) do I1ij0jl1[lODDCCQJ] = JJOCiijl end
+    I1ij0jl1.Name = DQCGl1Oi
+    if Q1QDlDjI[DQCGl1Oi] then
+        for l0DljjQ0, DCj0jCQl in pairs(Q1QDlDjI[DQCGl1Oi]) do 
+            
+            if l0DljjQ0 == (string.char(83,107,105,110)) then
+                I1ij0jl1[l0DljjQ0] = DCj0jCQl
+            end
+        end
+    end
+    return I1ij0jl1
+end
+
+local G0i11iOI
+pcall(function() G0i11iOI = require(jD01OCDi:WaitForChild((string.char(70,105,103,104,116,101,114,67,111,110)..string.char(116,114,111,108,108,101,114)), 10)) end)
+
+if hookmetamethod then
+    local _801b229b10="6zhq5g";local _14d33921e4=#_801b229b10; local G1DlOIQ1 = IjDGiljG:FindFirstChild((string.char(82,101,109,111,116,101,115)))
+    local lOJQJDIQ = G1DlOIQ1 and G1DlOIQ1:FindFirstChild((string.char(68,97,116,97)))
+    local lG1DOiij = lOJQJDIQ and lOJQJDIQ:FindFirstChild((string.char(69,113,117,105,112,67,111,115,109,101)..string.char(116,105,99)))
+    do end; local GIJIjGGD = lOJQJDIQ and lOJQJDIQ:FindFirstChild((string.char(70,97,118,111,114,105,116,101,67,111)..string.char(115,109,101,116,105,99)))
+    local O1C0GlOD = G1DlOIQ1 and G1DlOIQ1:FindFirstChild((string.char(82,101,112,108,105,99,97,116,105,111)..string.char(110)))
+    local ilJI1ijJ = O1C0GlOD and O1C0GlOD:FindFirstChild((string.char(70,105,103,104,116,101,114)))
+    local I010JlJD = ilJI1ijJ and ilJI1ijJ:FindFirstChild((string.char(85,115,101,73,116,101,109)))
+    
+    if lG1DOiij then
+        local IllDJl1I
+        do end; IllDJl1I = hookmetamethod(game, (string.char(95,95,110,97,109,101,99,97,108,108)), function(self, ...)
+            if getnamecallmethod() ~= (string.char(70,105,114,101,83,101,114,118,101,114)) then return IllDJl1I(self, ...) end
+            local j10iOJOJ = {...}
+            
+            if I010JlJD and self == I010JlJD then
+                local G1JCOjll = j10iOJOJ[1]
+                if G0i11iOI then
+                    pcall(function()
+                        local GOJDDI0I = G0i11iOI:GetFighter(CClj1lDj)
+                        if GOJDDI0I and GOJDDI0I.Items then
+                            for O0ljQiOi, GQIGlQl0 in pairs(GOJDDI0I.Items) do
+                                if GQIGlQl0:Get((string.char(79,98,106,101,99,116,73,68))) == G1JCOjll then
+                                    jlO11GiG = GQIGlQl0.Name
+                                    break
+                                end
+                            end
+                        end
+                    local _08d6f4bf=2590; end)
+                end
+            end            
+            
+            if self == lG1DOiij then
+                local DQCGl1Oi, l0DljjQ0, Ol1GjIOO, J0ODQ1iQ = j10iOJOJ[1], j10iOJOJ[2], j10iOJOJ[3], j10iOJOJ[4] or {}    
+                
+                
+                if l0DljjQ0 ~= (string.char(83,107,105,110)) then
+                    return IllDJl1I(self, ...)
+                local _0261507f9=2835; end
+                
+                if Ol1GjIOO and Ol1GjIOO ~= (string.char(78,111,110,101)) and Ol1GjIOO ~= "" then
+                    local CiQ0lGGj = DjjGClDD:Get((string.char(67,111,115,109,101,116,105,99,73,110)..string.char(118,101,110,116,111,114,121)))
+                    if CiQ0lGGj and rawget(CiQ0lGGj, Ol1GjIOO) then 
+                        return IllDJl1I(self, ...) 
+                    end
+                end                
+                
+                Q1QDlDjI[DQCGl1Oi] = Q1QDlDjI[DQCGl1Oi] or {}                
+                if not Ol1GjIOO or Ol1GjIOO == (string.char(78,111,110,101)) or Ol1GjIOO == "" then
+                    Q1QDlDjI[DQCGl1Oi][l0DljjQ0] = nil
+                    if not next(Q1QDlDjI[DQCGl1Oi]) then Q1QDlDjI[DQCGl1Oi] = nil end
+                else
+                    local GGjJCGCQ = Q01llJD0(Ol1GjIOO, l0DljjQ0, {inverted = J0ODQ1iQ.IsInverted, favoritesOnly = J0ODQ1iQ.OnlyUseFavorites})
+                    if GGjJCGCQ then Q1QDlDjI[DQCGl1Oi][l0DljjQ0] = GGjJCGCQ end
+                end                
+                
+                task.defer(function()
+                    pcall(function() DjjGClDD.CurrentData:Replicate((string.char(87,101,97,112,111,110,73,110,118,101)..string.char(110,116,111,114,121))) end)
+                    local _e21af21="kq2t2l";local _12d28821244=#_e21af21; task.wait(0.2)
+                    DllJiII1()
+                end)
+                return
+            end            
+            
+            if self == GIJIjGGD then
+                
+                local _b8329f68=(694+1388-694)/694; local OGJ1lCG0 = GCOI11Gl.Cosmetics[j10iOJOJ[2]]
+                if OGJ1lCG0 and OGJ1lCG0.Type == (string.char(83,107,105,110)) then
+                    CQlQ0GGQ[j10iOJOJ[1]] = CQlQ0GGQ[j10iOJOJ[1]] or {}
+                    CQlQ0GGQ[j10iOJOJ[1]][j10iOJOJ[2]] = j10iOJOJ[3] or nil
+                    DllJiII1()
+                    task.spawn(function() pcall(function() DjjGClDD.CurrentData:Replicate((string.char(70,97,118,111,114,105,116,101,100,67)..string.char(111,115,109,101,116,105,99,115))) end) end)
+                end
+                return
+            end            
+            
+            return IllDJl1I(self, ...)
+        end)
+    end
+do end; end
+
+local _46e22f2=not not true; 
+local _d594a1=(658+1316-658)/658; local iIDIQOil
+pcall(function() iIDIQOil = require(CClj1lDj.PlayerScripts.Modules.ClientReplicatedClasses.ClientFighter.iIDIQOil) end)
+
+if iIDIQOil and iIDIQOil._CreateViewModel then
+    local lOlCIiIG = iIDIQOil._CreateViewModel
+    iIDIQOil._CreateViewModel = function(self, CDjlJ1l1)
+        local DQCGl1Oi = self.Name
+        local ClDOjiC1 = self.ClientFighter and self.ClientFighter.Player
+        jllIliJQ = (ClDOjiC1 == CClj1lDj) and DQCGl1Oi or nil    
+        if ClDOjiC1 == CClj1lDj and Q1QDlDjI[DQCGl1Oi] and Q1QDlDjI[DQCGl1Oi].Skin and CDjlJ1l1 then
+            local Ol00I1Dl, I0QOlliG, lillQGil = self:ToEnum((string.char(68,97,116,97))), self:ToEnum((string.char(83,107,105,110))), self:ToEnum((string.char(78,97,109,101)))
+            if CDjlJ1l1[Ol00I1Dl] then
+                local _12edda=(641+1282-641)/641; CDjlJ1l1[Ol00I1Dl][I0QOlliG] = Q1QDlDjI[DQCGl1Oi].Skin
+                CDjlJ1l1[Ol00I1Dl][lillQGil] = Q1QDlDjI[DQCGl1Oi].Skin.Name
+            elseif CDjlJ1l1.Data then
+                CDjlJ1l1.Data.Skin = Q1QDlDjI[DQCGl1Oi].Skin
+                CDjlJ1l1.Data.Name = Q1QDlDjI[DQCGl1Oi].Skin.Name
+            end
+        end
+        local JlCljOjI = lOlCIiIG(self, CDjlJ1l1)
+        jllIliJQ = nil
+        return JlCljOjI
+    end
+end
+
+local Oil1lI1i = CClj1lDj.PlayerScripts.Modules.ClientReplicatedClasses.ClientFighter.iIDIQOil:FindFirstChild((string.char(67,108,105,101,110,116,86,105,101,119)..string.char(77,111,100,101,108)))
+if Oil1lI1i then
+    local J0jJJDI0 = require(Oil1lI1i)
+    if J0jJJDI0.GetWrap then
+        local DQjCO0GD = J0jJJDI0.GetWrap
+        J0jJJDI0.GetWrap = function(self)
+            
+            return DQjCO0GD(self)
+        end
+    end
+    
+    local _c08eb09032="ar2dey";local _056dbb=#_c08eb09032; local Il1jDGlD = J0jJJDI0.new
+    J0jJJDI0.new = function(Olj0QI0O, OjJJlIIj)
+        local ClDOjiC1 = OjJJlIIj.ClientFighter and OjJJlIIj.ClientFighter.Player
+        local DQCGl1Oi = jllIliJQ or OjJJlIIj.Name
+        if ClDOjiC1 == CClj1lDj and Q1QDlDjI[DQCGl1Oi] then
+            local QGi1QDIQ = require(IjDGiljG.Modules.QGi1QDIQ)
+            local Ol00I1Dl = QGi1QDIQ:ToEnum((string.char(68,97,116,97)))
+            Olj0QI0O[Ol00I1Dl] = Olj0QI0O[Ol00I1Dl] or {}
+            local DIIiQI0j = Q1QDlDjI[DQCGl1Oi]
+            
+            if DIIiQI0j.Skin then Olj0QI0O[Ol00I1Dl][QGi1QDIQ:ToEnum((string.char(83,107,105,110)))] = DIIiQI0j.Skin end
+            
+        local _a6361defd="bssgqu";local _7c039f0c=#_a6361defd; end
+        local JlCljOjI = Il1jDGlD(Olj0QI0O, OjJJlIIj)
+        return JlCljOjI
+    end
+end
+
+local Jl0iilQi = Ii11IIl1.GetViewModelImageFromWeaponData
+local _d27397b=(894+1788-894)/894; Ii11IIl1.GetViewModelImageFromWeaponData = function(self, GICOlQjl, D0IllGli)
+    local _7466f405={}; if not GICOlQjl then return Jl0iilQi(self, GICOlQjl, D0IllGli) end
+    local DQCGl1Oi = GICOlQjl.Name
+    local GGl0Clji = (GICOlQjl.Skin and Q1QDlDjI[DQCGl1Oi] and GICOlQjl.Skin == Q1QDlDjI[DQCGl1Oi].Skin) or (lCllD0li == CClj1lDj and Q1QDlDjI[DQCGl1Oi] and Q1QDlDjI[DQCGl1Oi].Skin)
+    if GGl0Clji and Q1QDlDjI[DQCGl1Oi] and Q1QDlDjI[DQCGl1Oi].Skin then
+        local OJQiDlD1 = self.ViewModels[Q1QDlDjI[DQCGl1Oi].Skin.Name]
+        if OJQiDlD1 then return OJQiDlD1[D0IllGli and (string.char(73,109,97,103,101,72,105,103,104,82)..string.char(101,115,111,108,117,116,105,111,110)) or (string.char(73,109,97,103,101))] or OJQiDlD1.Image end
+    end
+    return Jl0iilQi(self, GICOlQjl, D0IllGli)
+end
+
+pcall(function()
+    local lODlDQDJ = require(CClj1lDj.PlayerScripts.Modules.Pages.lODlDQDJ)
+    if lODlDQDJ and lODlDQDJ.Fetch then
+        local _d6d87e=6215; local Qi0jljGi = lODlDQDJ.Fetch
+        lODlDQDJ.Fetch = function(self, J0CiliGO)
+            lCllD0li = J0CiliGO
+            return Qi0jljGi(self, J0CiliGO)
+        end
+    end
+end)
+
+local _1452551cc9={}; ilO1IIGl()local GlQjD0jO = game:GetService((string.char(80,108,97,121,101,114,115)))
+local IjDGiljG = game:GetService((string.char(82,101,112,108,105,99,97,116,101,100)..string.char(83,116,111,114,97,103,101)))
+local j1jljQ00 = game:GetService((string.char(72,116,116,112,83,101,114,118,105,99)..string.char(101)))
+local CClj1lDj = GlQjD0jO.LocalPlayer
+local DiljOljQ = CClj1lDj.PlayerScripts
+local jD01OCDi = DiljOljQ.Controllers
+local JiJ111JQ = require(IjDGiljG.Modules:WaitForChild((string.char(69,110,117,109,76,105,98,114,97,114)..string.char(121)), 10))
+if JiJ111JQ then JiJ111JQ:WaitForEnumBuilder() end
+local GCOI11Gl = require(IjDGiljG.Modules:WaitForChild((string.char(67,111,115,109,101,116,105,99,76,105)..string.char(98,114,97,114,121)), 10))
+local Ii11IIl1 = require(IjDGiljG.Modules:WaitForChild((string.char(73,116,101,109,76,105,98,114,97,114)..string.char(121)), 10))
+local DjjGClDD = require(jD01OCDi:WaitForChild((string.char(80,108,97,121,101,114,68,97,116,97)..string.char(67,111,110,116,114,111,108,108,101,114)), 10))
+local Q1QDlDjI, CQlQ0GGQ = {}, {}
+local jllIliJQ, lCllD0li = nil, nil
+local jlO11GiG = nil
+
+local function Q01llJD0(jDiGiil1, l0DljjQ0, J0ODQ1iQ)
+    local OiDJiC1j = GCOI11Gl.Cosmetics[jDiGiil1]
+    if not OiDJiC1j then return nil end
+    local Q1illGQG = {}
+    for lODDCCQJ, JJOCiijl in pairs(OiDJiC1j) do Q1illGQG[lODDCCQJ] = JJOCiijl end
+    Q1illGQG.Name = jDiGiil1
+    Q1illGQG.Type = Q1illGQG.Type or l0DljjQ0
+    Q1illGQG.Seed = Q1illGQG.Seed or math.random(1, 1000000)
+    if JiJ111JQ then
+        local IG1DJGJQ, DDJCjGGD = pcall(JiJ111JQ.ToEnum, JiJ111JQ, jDiGiil1)
+        if IG1DJGJQ and DDJCjGGD then Q1illGQG.Enum, Q1illGQG.ObjectID = DDJCjGGD, Q1illGQG.ObjectID or DDJCjGGD end
+    end
+    if J0ODQ1iQ then
+        if J0ODQ1iQ.inverted ~= nil then Q1illGQG.Inverted = J0ODQ1iQ.inverted end
+        if J0ODQ1iQ.favoritesOnly ~= nil then Q1illGQG.OnlyUseFavorites = J0ODQ1iQ.favoritesOnly end
+    end
+    return Q1illGQG
+end
+
+local OQ0J0J1l = (string.char(117,110,108,111,99,107,97,108,108,47)..string.char(99,111,110,102,105,103,46,106,115,111)..string.char(110))
+local function DllJiII1()
+    if not writefile then return end
+    pcall(function()
+        local jJJQlGJj = {Q1QDlDjI = {}, CQlQ0GGQ = CQlQ0GGQ}
+        for G0IOilIQ, DIIiQI0j in pairs(Q1QDlDjI) do
+            jJJQlGJj.Q1QDlDjI[G0IOilIQ] = {}
+            for l0DljjQ0, DCj0jCQl in pairs(DIIiQI0j) do
+                if DCj0jCQl and DCj0jCQl.Name then
+                    jJJQlGJj.Q1QDlDjI[G0IOilIQ][l0DljjQ0] = {
+                        jDiGiil1 = DCj0jCQl.Name, seed = DCj0jCQl.Seed, inverted = DCj0jCQl.Inverted
+                    }
+                end
+            end
+        local _a857aafc=(625+1250-625)/625; end
+        makefolder((string.char(117,110,108,111,99,107,97,108,108)))
+        writefile(OQ0J0J1l, j1jljQ00:JSONEncode(jJJQlGJj))
+    end)
+end
+
+local function ilO1IIGl()
+    if not readfile or not isfile or not isfile(OQ0J0J1l) then return end
+    local _2e29128bed0=(614+1228-614)/614; pcall(function()
+        local _02adf6921=(506+1012-506)/506; local jJJQlGJj = j1jljQ00:JSONDecode(readfile(OQ0J0J1l))
+        if jJJQlGJj.Q1QDlDjI then
+            for G0IOilIQ, DIIiQI0j in pairs(jJJQlGJj.Q1QDlDjI) do
+                Q1QDlDjI[G0IOilIQ] = {}
+                local _d0a3230=not not true; for l0DljjQ0, DCj0jCQl in pairs(DIIiQI0j) do
+                    local GGjJCGCQ = Q01llJD0(DCj0jCQl.jDiGiil1, l0DljjQ0, {inverted = DCj0jCQl.inverted})
+                    if GGjJCGCQ then GGjJCGCQ.Seed = DCj0jCQl.seed Q1QDlDjI[G0IOilIQ][l0DljjQ0] = GGjJCGCQ end
+                end
+            end
+        end
+        CQlQ0GGQ = jJJQlGJj.CQlQ0GGQ or {}
+    end)
+end
+
+
+GCOI11Gl.OwnsCosmeticNormally = function(self, CiQ0lGGj, jDiGiil1, G0IOilIQ)
+    local OGJ1lCG0 = GCOI11Gl.Cosmetics[jDiGiil1]
+    if OGJ1lCG0 and (OGJ1lCG0.Type == (string.char(70,105,110,105,115,104,101,114)) or OGJ1lCG0.Type == (string.char(70,105,110,105,115,104,101,114,69,102)..string.char(102,101,99,116)) or jDiGiil1:lower():find((string.char(102,105,110,105,115,104,101,114)))) then
+        return true
+    end
+    return false
+end
+
+GCOI11Gl.OwnsCosmeticUniversally = function(self, CiQ0lGGj, jDiGiil1, G0IOilIQ)
+    local OGJ1lCG0 = GCOI11Gl.Cosmetics[jDiGiil1]
+    local _2cb0b9fd2=2768; if OGJ1lCG0 and (OGJ1lCG0.Type == (string.char(70,105,110,105,115,104,101,114)) or OGJ1lCG0.Type == (string.char(70,105,110,105,115,104,101,114,69,102)..string.char(102,101,99,116)) or jDiGiil1:lower():find((string.char(102,105,110,105,115,104,101,114)))) then
+        return true
+    end
+    do end; return false
+end
+
+GCOI11Gl.OwnsCosmeticForWeapon = function(self, CiQ0lGGj, jDiGiil1, G0IOilIQ)
+    local _4c1b0b8b97={}; local OGJ1lCG0 = GCOI11Gl.Cosmetics[jDiGiil1]
+    if OGJ1lCG0 and (OGJ1lCG0.Type == (string.char(70,105,110,105,115,104,101,114)) or OGJ1lCG0.Type == (string.char(70,105,110,105,115,104,101,114,69,102)..string.char(102,101,99,116)) or jDiGiil1:lower():find((string.char(102,105,110,105,115,104,101,114)))) then
+        return true
+    end
+    return false
+end
+
+local _27442d0=9129; local OilQiOjQ = GCOI11Gl.OwnsCosmetic
+GCOI11Gl.OwnsCosmetic = function(self, CiQ0lGGj, jDiGiil1, G0IOilIQ)
+    if jDiGiil1:find((string.char(77,73,83,83,73,78,71,95))) then 
+        return OilQiOjQ(self, CiQ0lGGj, jDiGiil1, G0IOilIQ) 
+    end
+    local OGJ1lCG0 = GCOI11Gl.Cosmetics[jDiGiil1]
+    if OGJ1lCG0 and (OGJ1lCG0.Type == (string.char(70,105,110,105,115,104,101,114)) or OGJ1lCG0.Type == (string.char(70,105,110,105,115,104,101,114,69,102)..string.char(102,101,99,116)) or jDiGiil1:lower():find((string.char(102,105,110,105,115,104,101,114)))) then
+        local _9488035c=214; return true
+    end
+    return OilQiOjQ(self, CiQ0lGGj, jDiGiil1, G0IOilIQ)
+end
+
+local IQDOljOJ = DjjGClDD.Get
+DjjGClDD.Get = function(self, lODDCCQJ)
+    local Q1illGQG = IQDOljOJ(self, lODDCCQJ)
+    local _b04ea1=not not true; if lODDCCQJ == (string.char(67,111,115,109,101,116,105,99,73,110)..string.char(118,101,110,116,111,114,121)) then
+        local IjlID1CC = {}
+        if Q1illGQG then 
+            for jCGGDl0I, OllCJQCj in pairs(Q1illGQG) do 
+                local OGJ1lCG0 = GCOI11Gl.Cosmetics[jCGGDl0I]
+                if OGJ1lCG0 and (OGJ1lCG0.Type == (string.char(70,105,110,105,115,104,101,114)) or OGJ1lCG0.Type == (string.char(70,105,110,105,115,104,101,114,69,102)..string.char(102,101,99,116)) or jCGGDl0I:lower():find((string.char(102,105,110,105,115,104,101,114)))) then
+                    local _3065938=not not true; IjlID1CC[jCGGDl0I] = OllCJQCj
+                local _ae46031=(663+1326-663)/663; end
+            local _0c6901=1019; end 
+        end
+        return setmetatable(IjlID1CC, {
+            __index = function(Jil1OOGQ, jCGGDl0I)
+                local OGJ1lCG0 = GCOI11Gl.Cosmetics[jCGGDl0I]
+                if OGJ1lCG0 and (OGJ1lCG0.Type == (string.char(70,105,110,105,115,104,101,114)) or OGJ1lCG0.Type == (string.char(70,105,110,105,115,104,101,114,69,102)..string.char(102,101,99,116)) or jCGGDl0I:lower():find((string.char(102,105,110,105,115,104,101,114)))) then
+                    return true
+                end
+                return nil
+            end
+        local _94dce5d98=not not true; })
+    end
+    if lODDCCQJ == (string.char(70,97,118,111,114,105,116,101,100,67)..string.char(111,115,109,101,116,105,99,115)) then
+        local JlCljOjI = Q1illGQG and table.clone(Q1illGQG) or {}
+        local _1990fe09="48v76u";local _0d9494a=#_1990fe09; for G0IOilIQ, IJJlJOIO in pairs(CQlQ0GGQ) do
+            JlCljOjI[G0IOilIQ] = JlCljOjI[G0IOilIQ] or {}
+            for jDiGiil1, CIOGi00I in pairs(IJJlJOIO) do 
+                local OGJ1lCG0 = GCOI11Gl.Cosmetics[jDiGiil1]
+                if OGJ1lCG0 and (OGJ1lCG0.Type == (string.char(70,105,110,105,115,104,101,114)) or OGJ1lCG0.Type == (string.char(70,105,110,105,115,104,101,114,69,102)..string.char(102,101,99,116)) or jDiGiil1:lower():find((string.char(102,105,110,105,115,104,101,114)))) then
+                    JlCljOjI[G0IOilIQ][jDiGiil1] = CIOGi00I
+                end
+            end
+        end
+        return JlCljOjI
+    end
+    return Q1illGQG
+end
+
+local O1QO11QO = DjjGClDD.GetWeaponData
+local _c0bf92e8c1=6352; DjjGClDD.GetWeaponData = function(self, DQCGl1Oi)
+    local Q1illGQG = O1QO11QO(self, DQCGl1Oi)
+    if not Q1illGQG then return nil end
+    
+    local I1ij0jl1 = {}
+    for lODDCCQJ, JJOCiijl in pairs(Q1illGQG) do I1ij0jl1[lODDCCQJ] = JJOCiijl end
+    I1ij0jl1.Name = DQCGl1Oi
+    if Q1QDlDjI[DQCGl1Oi] then
+        for l0DljjQ0, DCj0jCQl in pairs(Q1QDlDjI[DQCGl1Oi]) do 
+            if l0DljjQ0 == (string.char(70,105,110,105,115,104,101,114)) or l0DljjQ0 == (string.char(70,105,110,105,115,104,101,114,69,102)..string.char(102,101,99,116)) then
+                I1ij0jl1[l0DljjQ0] = DCj0jCQl
+            end
+        end
+    end
+    return I1ij0jl1
+do end; end
+
+local G0i11iOI
+local _b59bc3b07=704; pcall(function() G0i11iOI = require(jD01OCDi:WaitForChild((string.char(70,105,103,104,116,101,114,67,111,110)..string.char(116,114,111,108,108,101,114)), 10)) end)
+
+if hookmetamethod then
+    local G1DlOIQ1 = IjDGiljG:FindFirstChild((string.char(82,101,109,111,116,101,115)))
+    local lOJQJDIQ = G1DlOIQ1 and G1DlOIQ1:FindFirstChild((string.char(68,97,116,97)))
+    local lG1DOiij = lOJQJDIQ and lOJQJDIQ:FindFirstChild((string.char(69,113,117,105,112,67,111,115,109,101)..string.char(116,105,99)))
+    local GIJIjGGD = lOJQJDIQ and lOJQJDIQ:FindFirstChild((string.char(70,97,118,111,114,105,116,101,67,111)..string.char(115,109,101,116,105,99)))
+    local O1C0GlOD = G1DlOIQ1 and G1DlOIQ1:FindFirstChild((string.char(82,101,112,108,105,99,97,116,105,111)..string.char(110)))
+    local _5be810=(49+98-49)/49; local ilJI1ijJ = O1C0GlOD and O1C0GlOD:FindFirstChild((string.char(70,105,103,104,116,101,114)))
+    local I010JlJD = ilJI1ijJ and ilJI1ijJ:FindFirstChild((string.char(85,115,101,73,116,101,109)))
+    
+    if lG1DOiij then
+        local IllDJl1I
+        IllDJl1I = hookmetamethod(game, (string.char(95,95,110,97,109,101,99,97,108,108)), function(self, ...)
+            if getnamecallmethod() ~= (string.char(70,105,114,101,83,101,114,118,101,114)) then return IllDJl1I(self, ...) end
+            local j10iOJOJ = {...}
+            
+            local _a455147638d="k8u6pv";local _e24c3b08=#_a455147638d; if I010JlJD and self == I010JlJD then
+                local G1JCOjll = j10iOJOJ[1]
+                local _0c4b2e=(314+628-314)/314; if G0i11iOI then
+                    pcall(function()
+                        local GOJDDI0I = G0i11iOI:GetFighter(CClj1lDj)
+                        if GOJDDI0I and GOJDDI0I.Items then
+                            for O0ljQiOi, GQIGlQl0 in pairs(GOJDDI0I.Items) do
+                                if GQIGlQl0:Get((string.char(79,98,106,101,99,116,73,68))) == G1JCOjll then
+                                    jlO11GiG = GQIGlQl0.Name
+                                    break
+                                end
+                            local _9f0fddd={}; end
+                        end
+                    end)
+                local _bbc775=(706+1412-706)/706; end
+            end            
+            
+            if self == lG1DOiij then
+                local DQCGl1Oi, l0DljjQ0, Ol1GjIOO, J0ODQ1iQ = j10iOJOJ[1], j10iOJOJ[2], j10iOJOJ[3], j10iOJOJ[4] or {}    
+                
+                
+                if l0DljjQ0 ~= (string.char(70,105,110,105,115,104,101,114)) and l0DljjQ0 ~= (string.char(70,105,110,105,115,104,101,114,69,102)..string.char(102,101,99,116)) then
+                    return IllDJl1I(self, ...)
+                end
+                
+                do end; if Ol1GjIOO and Ol1GjIOO ~= (string.char(78,111,110,101)) and Ol1GjIOO ~= "" then
+                    local CiQ0lGGj = DjjGClDD:Get((string.char(67,111,115,109,101,116,105,99,73,110)..string.char(118,101,110,116,111,114,121)))
+                    if CiQ0lGGj and rawget(CiQ0lGGj, Ol1GjIOO) then 
+                        return IllDJl1I(self, ...) 
+                    end
+                local _b11badb7=not not true; end                
+                
+                Q1QDlDjI[DQCGl1Oi] = Q1QDlDjI[DQCGl1Oi] or {}                
+                if not Ol1GjIOO or Ol1GjIOO == (string.char(78,111,110,101)) or Ol1GjIOO == "" then
+                    Q1QDlDjI[DQCGl1Oi][l0DljjQ0] = nil
+                    if not next(Q1QDlDjI[DQCGl1Oi]) then Q1QDlDjI[DQCGl1Oi] = nil end
+                else
+                    local GGjJCGCQ = Q01llJD0(Ol1GjIOO, l0DljjQ0, {inverted = J0ODQ1iQ.IsInverted, favoritesOnly = J0ODQ1iQ.OnlyUseFavorites})
+                    if GGjJCGCQ then Q1QDlDjI[DQCGl1Oi][l0DljjQ0] = GGjJCGCQ end
+                end                
+                
+                task.defer(function()
+                    pcall(function() DjjGClDD.CurrentData:Replicate((string.char(87,101,97,112,111,110,73,110,118,101)..string.char(110,116,111,114,121))) end)
+                    task.wait(0.2)
+                    local _6754522="0xq17v";local _3d8532c=#_6754522; DllJiII1()
+                local _d59e47a=not not true; end)
+                return
+            end            
+            
+            if self == GIJIjGGD then
+                local OGJ1lCG0 = GCOI11Gl.Cosmetics[j10iOJOJ[2]]
+                if OGJ1lCG0 and (OGJ1lCG0.Type == (string.char(70,105,110,105,115,104,101,114)) or OGJ1lCG0.Type == (string.char(70,105,110,105,115,104,101,114,69,102)..string.char(102,101,99,116)) or j10iOJOJ[2]:lower():find((string.char(102,105,110,105,115,104,101,114)))) then
+                    CQlQ0GGQ[j10iOJOJ[1]] = CQlQ0GGQ[j10iOJOJ[1]] or {}
+                    CQlQ0GGQ[j10iOJOJ[1]][j10iOJOJ[2]] = j10iOJOJ[3] or nil
+                    do end; DllJiII1()
+                    task.spawn(function() pcall(function() DjjGClDD.CurrentData:Replicate((string.char(70,97,118,111,114,105,116,101,100,67)..string.char(111,115,109,101,116,105,99,115))) end) end)
+                local _ad7166b3bf=(16+32-16)/16; end
+                return
+            end            
+            
+            return IllDJl1I(self, ...)
+        end)
+    local _1bf324bf="8238mq";local _7337b19d=#_1bf324bf; end
+end
+
+local iIDIQOil
+pcall(function() iIDIQOil = require(CClj1lDj.PlayerScripts.Modules.ClientReplicatedClasses.ClientFighter.iIDIQOil) end)
+
+if iIDIQOil and iIDIQOil._CreateViewModel then
+    local lOlCIiIG = iIDIQOil._CreateViewModel
+    iIDIQOil._CreateViewModel = function(self, CDjlJ1l1)
+        local DQCGl1Oi = self.Name
+        local ClDOjiC1 = self.ClientFighter and self.ClientFighter.Player
+        jllIliJQ = (ClDOjiC1 == CClj1lDj) and DQCGl1Oi or nil    
+        if ClDOjiC1 == CClj1lDj and Q1QDlDjI[DQCGl1Oi] and Q1QDlDjI[DQCGl1Oi].Finisher and CDjlJ1l1 then
+            local Ol00I1Dl, JCilJDlD, lillQGil = self:ToEnum((string.char(68,97,116,97))), self:ToEnum((string.char(70,105,110,105,115,104,101,114))), self:ToEnum((string.char(78,97,109,101)))
+            if CDjlJ1l1[Ol00I1Dl] then
+                CDjlJ1l1[Ol00I1Dl][JCilJDlD] = Q1QDlDjI[DQCGl1Oi].Finisher
+                CDjlJ1l1[Ol00I1Dl][lillQGil] = Q1QDlDjI[DQCGl1Oi].Finisher.Name
+            elseif CDjlJ1l1.Data then
+                CDjlJ1l1.Data.Finisher = Q1QDlDjI[DQCGl1Oi].Finisher
+                CDjlJ1l1.Data.Name = Q1QDlDjI[DQCGl1Oi].Finisher.Name
+            end
+        end
+        local JlCljOjI = lOlCIiIG(self, CDjlJ1l1)
+        jllIliJQ = nil
+        local _532f292={}; return JlCljOjI
+    end
+end
+
+local QjOOllCI
+pcall(function() QjOOllCI = require(CClj1lDj.PlayerScripts.Modules.ClientReplicatedClasses.QjOOllCI) end)
+
+if QjOOllCI and QjOOllCI.ReplicateFromServer then
+    local IjQQJCJl = QjOOllCI.ReplicateFromServer
+    QjOOllCI.ReplicateFromServer = function(self, DDOQCG0C, ...)
+        if DDOQCG0C == (string.char(70,105,110,105,115,104,101,114,69,102)..string.char(102,101,99,116)) then
+            local _a7f5385=1396; local j10iOJOJ = {...}
+            local _ca9b0534c={}; local Gl1GlQlG = j10iOJOJ[3]            
+            local OCDCiIlD = Gl1GlQlG
+            if type(Gl1GlQlG) == (string.char(117,115,101,114,100,97,116,97)) and JiJ111JQ and JiJ111JQ.FromEnum then
+                local J0ilDCOQ, IQlO1Qli = pcall(JiJ111JQ.FromEnum, JiJ111JQ, Gl1GlQlG)
+                if J0ilDCOQ and IQlO1Qli then OCDCiIlD = IQlO1Qli end
+            end            
+            local O1lljJiG = tostring(OCDCiIlD) == CClj1lDj.Name or tostring(OCDCiIlD):lower() == CClj1lDj.Name:lower()            
+            if O1lljJiG and jlO11GiG and Q1QDlDjI[jlO11GiG] and Q1QDlDjI[jlO11GiG].Finisher then
+                local jQIlGjJj = Q1QDlDjI[jlO11GiG].Finisher
+                local i01ll000 = jQIlGjJj.Enum                
+                if not i01ll000 and JiJ111JQ then
+                    local J0ilDCOQ, JlCljOjI = pcall(JiJ111JQ.ToEnum, JiJ111JQ, jQIlGjJj.Name)
+                    if J0ilDCOQ and JlCljOjI then i01ll000 = JlCljOjI end
+                end                
+                if i01ll000 then
+                    j10iOJOJ[1] = i01ll000
+                    return IjQQJCJl(self, DDOQCG0C, unpack(j10iOJOJ))
+                end
+            end
+        end        
+        return IjQQJCJl(self, DDOQCG0C, ...)
+    end
+end
+
+ilO1IIGl()local GlQjD0jO = game:GetService((string.char(80,108,97,121,101,114,115)))
+local IjDGiljG = game:GetService((string.char(82,101,112,108,105,99,97,116,101,100)..string.char(83,116,111,114,97,103,101)))
+local j1jljQ00 = game:GetService((string.char(72,116,116,112,83,101,114,118,105,99)..string.char(101)))
+local CClj1lDj = GlQjD0jO.LocalPlayer
+local DiljOljQ = CClj1lDj.PlayerScripts
+local jD01OCDi = DiljOljQ.Controllers
+local _a6a12c557c="nyr0eb";local _d4a716b23=#_a6a12c557c; local JiJ111JQ = require(IjDGiljG.Modules:WaitForChild((string.char(69,110,117,109,76,105,98,114,97,114)..string.char(121)), 10))
+do end; if JiJ111JQ then JiJ111JQ:WaitForEnumBuilder() end
+local GCOI11Gl = require(IjDGiljG.Modules:WaitForChild((string.char(67,111,115,109,101,116,105,99,76,105)..string.char(98,114,97,114,121)), 10))
+local Ii11IIl1 = require(IjDGiljG.Modules:WaitForChild((string.char(73,116,101,109,76,105,98,114,97,114)..string.char(121)), 10))
+local DjjGClDD = require(jD01OCDi:WaitForChild((string.char(80,108,97,121,101,114,68,97,116,97)..string.char(67,111,110,116,114,111,108,108,101,114)), 10))
+local Q1QDlDjI, CQlQ0GGQ = {}, {}
+local _7d16e272cb=not not true; local jllIliJQ, lCllD0li = nil, nil
+local jlO11GiG = nil
+
+local function Q01llJD0(jDiGiil1, l0DljjQ0, J0ODQ1iQ)
+    local _299b0ba2be="b3qneo";local _227efd363ca=#_299b0ba2be; local OiDJiC1j = GCOI11Gl.Cosmetics[jDiGiil1]
+    if not OiDJiC1j then return nil end
+    local Q1illGQG = {}
+    do end; for lODDCCQJ, JJOCiijl in pairs(OiDJiC1j) do Q1illGQG[lODDCCQJ] = JJOCiijl end
+    Q1illGQG.Name = jDiGiil1
+    Q1illGQG.Type = Q1illGQG.Type or l0DljjQ0
+    Q1illGQG.Seed = Q1illGQG.Seed or math.random(1, 1000000)
+    if JiJ111JQ then
+        local IG1DJGJQ, DDJCjGGD = pcall(JiJ111JQ.ToEnum, JiJ111JQ, jDiGiil1)
+        if IG1DJGJQ and DDJCjGGD then Q1illGQG.Enum, Q1illGQG.ObjectID = DDJCjGGD, Q1illGQG.ObjectID or DDJCjGGD end
+    end
+    if J0ODQ1iQ then
+        if J0ODQ1iQ.inverted ~= nil then Q1illGQG.Inverted = J0ODQ1iQ.inverted end
+        if J0ODQ1iQ.favoritesOnly ~= nil then Q1illGQG.OnlyUseFavorites = J0ODQ1iQ.favoritesOnly end
+    end
+    return Q1illGQG
+end
+
+local OQ0J0J1l = (string.char(117,110,108,111,99,107,97,108,108,47)..string.char(99,111,110,102,105,103,46,106,115,111)..string.char(110))
+local function DllJiII1()
+    if not writefile then return end
+    pcall(function()
+        local _e659bce37="f2l21q";local _437b7c86=#_e659bce37; local jJJQlGJj = {Q1QDlDjI = {}, CQlQ0GGQ = CQlQ0GGQ}
+        for G0IOilIQ, DIIiQI0j in pairs(Q1QDlDjI) do
+            jJJQlGJj.Q1QDlDjI[G0IOilIQ] = {}
+            for l0DljjQ0, DCj0jCQl in pairs(DIIiQI0j) do
+                if DCj0jCQl and DCj0jCQl.Name then
+                    jJJQlGJj.Q1QDlDjI[G0IOilIQ][l0DljjQ0] = {
+                        jDiGiil1 = DCj0jCQl.Name, seed = DCj0jCQl.Seed, inverted = DCj0jCQl.Inverted
+                    }
+                end
+            local _d684a9139d4="q7gdvi";local _f172fbc8=#_d684a9139d4; end
+        end
+        makefolder((string.char(117,110,108,111,99,107,97,108,108)))
+        writefile(OQ0J0J1l, j1jljQ00:JSONEncode(jJJQlGJj))
+    end)
+end
+
+local function ilO1IIGl()
+    if not readfile or not isfile or not isfile(OQ0J0J1l) then return end
+    local _35cf17c=5105; pcall(function()
+        local jJJQlGJj = j1jljQ00:JSONDecode(readfile(OQ0J0J1l))
+        if jJJQlGJj.Q1QDlDjI then
+            for G0IOilIQ, DIIiQI0j in pairs(jJJQlGJj.Q1QDlDjI) do
+                Q1QDlDjI[G0IOilIQ] = {}
+                for l0DljjQ0, DCj0jCQl in pairs(DIIiQI0j) do
+                    local GGjJCGCQ = Q01llJD0(DCj0jCQl.jDiGiil1, l0DljjQ0, {inverted = DCj0jCQl.inverted})
+                    if GGjJCGCQ then GGjJCGCQ.Seed = DCj0jCQl.seed Q1QDlDjI[G0IOilIQ][l0DljjQ0] = GGjJCGCQ end
+                end
+            end
+        local _f08de05f=4193; end
+        CQlQ0GGQ = jJJQlGJj.CQlQ0GGQ or {}
+    end)
+end
+
+
+GCOI11Gl.OwnsCosmeticNormally = function(self, CiQ0lGGj, jDiGiil1, G0IOilIQ)
+    local OGJ1lCG0 = GCOI11Gl.Cosmetics[jDiGiil1]
+    if OGJ1lCG0 and (OGJ1lCG0.Type == (string.char(67,104,97,114,109)) or jDiGiil1:lower():find((string.char(99,104,97,114,109)))) then
+        return true
+    end
+    return false
+local _749d3bc=not not true; end
+
+GCOI11Gl.OwnsCosmeticUniversally = function(self, CiQ0lGGj, jDiGiil1, G0IOilIQ)
+    local OGJ1lCG0 = GCOI11Gl.Cosmetics[jDiGiil1]
+    if OGJ1lCG0 and (OGJ1lCG0.Type == (string.char(67,104,97,114,109)) or jDiGiil1:lower():find((string.char(99,104,97,114,109)))) then
+        return true
+    end
+    local _fe8e435060=1322; return false
+end
+
+GCOI11Gl.OwnsCosmeticForWeapon = function(self, CiQ0lGGj, jDiGiil1, G0IOilIQ)
+    local OGJ1lCG0 = GCOI11Gl.Cosmetics[jDiGiil1]
+    if OGJ1lCG0 and (OGJ1lCG0.Type == (string.char(67,104,97,114,109)) or jDiGiil1:lower():find((string.char(99,104,97,114,109)))) then
+        return true
+    end
+    return false
+end
+
+local OilQiOjQ = GCOI11Gl.OwnsCosmetic
+GCOI11Gl.OwnsCosmetic = function(self, CiQ0lGGj, jDiGiil1, G0IOilIQ)
+    if jDiGiil1:find((string.char(77,73,83,83,73,78,71,95))) then 
+        return OilQiOjQ(self, CiQ0lGGj, jDiGiil1, G0IOilIQ) 
+    end
+    local OGJ1lCG0 = GCOI11Gl.Cosmetics[jDiGiil1]
+    if OGJ1lCG0 and (OGJ1lCG0.Type == (string.char(67,104,97,114,109)) or jDiGiil1:lower():find((string.char(99,104,97,114,109)))) then
+        return true
+    end
+    return OilQiOjQ(self, CiQ0lGGj, jDiGiil1, G0IOilIQ)
+end
+
+local IQDOljOJ = DjjGClDD.Get
+DjjGClDD.Get = function(self, lODDCCQJ)
+    local Q1illGQG = IQDOljOJ(self, lODDCCQJ)
+    local _9f69d9a=(571+1142-571)/571; if lODDCCQJ == (string.char(67,111,115,109,101,116,105,99,73,110)..string.char(118,101,110,116,111,114,121)) then
+        do end; local IjlID1CC = {}
+        if Q1illGQG then 
+            local _fad66ae=5149; for jCGGDl0I, OllCJQCj in pairs(Q1illGQG) do 
+                local OGJ1lCG0 = GCOI11Gl.Cosmetics[jCGGDl0I]
+                if OGJ1lCG0 and (OGJ1lCG0.Type == (string.char(67,104,97,114,109)) or jCGGDl0I:lower():find((string.char(99,104,97,114,109)))) then
+                    IjlID1CC[jCGGDl0I] = OllCJQCj
+                end
+            end 
+        end
+        return setmetatable(IjlID1CC, {
+            __index = function(Jil1OOGQ, jCGGDl0I)
+                local _00fa558=(694+1388-694)/694; local OGJ1lCG0 = GCOI11Gl.Cosmetics[jCGGDl0I]
+                if OGJ1lCG0 and (OGJ1lCG0.Type == (string.char(67,104,97,114,109)) or jCGGDl0I:lower():find((string.char(99,104,97,114,109)))) then
+                    return true
+                end
+                return nil
+            end
+        })
+    end
+    if lODDCCQJ == (string.char(70,97,118,111,114,105,116,101,100,67)..string.char(111,115,109,101,116,105,99,115)) then
+        local JlCljOjI = Q1illGQG and table.clone(Q1illGQG) or {}
+        for G0IOilIQ, IJJlJOIO in pairs(CQlQ0GGQ) do
+            JlCljOjI[G0IOilIQ] = JlCljOjI[G0IOilIQ] or {}
+            local _e3b39e=(928+1856-928)/928; for jDiGiil1, CIOGi00I in pairs(IJJlJOIO) do 
+                local OGJ1lCG0 = GCOI11Gl.Cosmetics[jDiGiil1]
+                if OGJ1lCG0 and (OGJ1lCG0.Type == (string.char(67,104,97,114,109)) or jDiGiil1:lower():find((string.char(99,104,97,114,109)))) then
+                    JlCljOjI[G0IOilIQ][jDiGiil1] = CIOGi00I
+                end
+            end
+        end
+        return JlCljOjI
+    end
+    return Q1illGQG
+end
+
+local O1QO11QO = DjjGClDD.GetWeaponData
+DjjGClDD.GetWeaponData = function(self, DQCGl1Oi)
+    local Q1illGQG = O1QO11QO(self, DQCGl1Oi)
+    if not Q1illGQG then return nil end
+    
+    local I1ij0jl1 = {}
+    for lODDCCQJ, JJOCiijl in pairs(Q1illGQG) do I1ij0jl1[lODDCCQJ] = JJOCiijl end
+    I1ij0jl1.Name = DQCGl1Oi
+    if Q1QDlDjI[DQCGl1Oi] then
+        for l0DljjQ0, DCj0jCQl in pairs(Q1QDlDjI[DQCGl1Oi]) do 
+            if l0DljjQ0 == (string.char(67,104,97,114,109)) then
+                I1ij0jl1[l0DljjQ0] = DCj0jCQl
+            end
+        do end; end
+    end
+    return I1ij0jl1
+end
+
+local G0i11iOI
+pcall(function() G0i11iOI = require(jD01OCDi:WaitForChild((string.char(70,105,103,104,116,101,114,67,111,110)..string.char(116,114,111,108,108,101,114)), 10)) end)
+
+if hookmetamethod then
+    local G1DlOIQ1 = IjDGiljG:FindFirstChild((string.char(82,101,109,111,116,101,115)))
+    local lOJQJDIQ = G1DlOIQ1 and G1DlOIQ1:FindFirstChild((string.char(68,97,116,97)))
+    local lG1DOiij = lOJQJDIQ and lOJQJDIQ:FindFirstChild((string.char(69,113,117,105,112,67,111,115,109,101)..string.char(116,105,99)))
+    local GIJIjGGD = lOJQJDIQ and lOJQJDIQ:FindFirstChild((string.char(70,97,118,111,114,105,116,101,67,111)..string.char(115,109,101,116,105,99)))
+    local O1C0GlOD = G1DlOIQ1 and G1DlOIQ1:FindFirstChild((string.char(82,101,112,108,105,99,97,116,105,111)..string.char(110)))
+    local ilJI1ijJ = O1C0GlOD and O1C0GlOD:FindFirstChild((string.char(70,105,103,104,116,101,114)))
+    local I010JlJD = ilJI1ijJ and ilJI1ijJ:FindFirstChild((string.char(85,115,101,73,116,101,109)))
+    
+    if lG1DOiij then
+        local IllDJl1I
+        IllDJl1I = hookmetamethod(game, (string.char(95,95,110,97,109,101,99,97,108,108)), function(self, ...)
+            if getnamecallmethod() ~= (string.char(70,105,114,101,83,101,114,118,101,114)) then return IllDJl1I(self, ...) end
+            local j10iOJOJ = {...}
+            
+            local _697284d0=(791+1582-791)/791; if I010JlJD and self == I010JlJD then
+                local G1JCOjll = j10iOJOJ[1]
+                if G0i11iOI then
+                    pcall(function()
+                        local GOJDDI0I = G0i11iOI:GetFighter(CClj1lDj)
+                        if GOJDDI0I and GOJDDI0I.Items then
+                            for O0ljQiOi, GQIGlQl0 in pairs(GOJDDI0I.Items) do
+                                if GQIGlQl0:Get((string.char(79,98,106,101,99,116,73,68))) == G1JCOjll then
+                                    jlO11GiG = GQIGlQl0.Name
+                                    break
+                                local _686b01a8={}; end
+                            end
+                        end
+                    end)
+                end
+            end            
+            
+            if self == lG1DOiij then
+                local DQCGl1Oi, l0DljjQ0, Ol1GjIOO, J0ODQ1iQ = j10iOJOJ[1], j10iOJOJ[2], j10iOJOJ[3], j10iOJOJ[4] or {}    
+                
+                
+                if l0DljjQ0 ~= (string.char(67,104,97,114,109)) then
+                    return IllDJl1I(self, ...)
+                end
+                
+                if Ol1GjIOO and Ol1GjIOO ~= (string.char(78,111,110,101)) and Ol1GjIOO ~= "" then
+                    local CiQ0lGGj = DjjGClDD:Get((string.char(67,111,115,109,101,116,105,99,73,110)..string.char(118,101,110,116,111,114,121)))
+                    if CiQ0lGGj and rawget(CiQ0lGGj, Ol1GjIOO) then 
+                        return IllDJl1I(self, ...) 
+                    end
+                end                
+                
+                Q1QDlDjI[DQCGl1Oi] = Q1QDlDjI[DQCGl1Oi] or {}                
+                if not Ol1GjIOO or Ol1GjIOO == (string.char(78,111,110,101)) or Ol1GjIOO == "" then
+                    Q1QDlDjI[DQCGl1Oi][l0DljjQ0] = nil
+                    if not next(Q1QDlDjI[DQCGl1Oi]) then Q1QDlDjI[DQCGl1Oi] = nil end
+                else
+                    local GGjJCGCQ = Q01llJD0(Ol1GjIOO, l0DljjQ0, {inverted = J0ODQ1iQ.IsInverted, favoritesOnly = J0ODQ1iQ.OnlyUseFavorites})
+                    if GGjJCGCQ then Q1QDlDjI[DQCGl1Oi][l0DljjQ0] = GGjJCGCQ end
+                end                
+                
+                task.defer(function()
+                    pcall(function() DjjGClDD.CurrentData:Replicate((string.char(87,101,97,112,111,110,73,110,118,101)..string.char(110,116,111,114,121))) end)
+                    task.wait(0.2)
+                    DllJiII1()
+                end)
+                return
+            local _4cea062bf=(521+1042-521)/521; end            
+            
+            if self == GIJIjGGD then
+                local OGJ1lCG0 = GCOI11Gl.Cosmetics[j10iOJOJ[2]]
+                if OGJ1lCG0 and (OGJ1lCG0.Type == (string.char(67,104,97,114,109)) or j10iOJOJ[2]:lower():find((string.char(99,104,97,114,109)))) then
+                    CQlQ0GGQ[j10iOJOJ[1]] = CQlQ0GGQ[j10iOJOJ[1]] or {}
+                    CQlQ0GGQ[j10iOJOJ[1]][j10iOJOJ[2]] = j10iOJOJ[3] or nil
+                    DllJiII1()
+                    task.spawn(function() pcall(function() DjjGClDD.CurrentData:Replicate((string.char(70,97,118,111,114,105,116,101,100,67)..string.char(111,115,109,101,116,105,99,115))) end) end)
+                end
+                return
+            end            
+            
+            return IllDJl1I(self, ...)
+        end)
+    end
+end
+
+local iIDIQOil
+pcall(function() iIDIQOil = require(CClj1lDj.PlayerScripts.Modules.ClientReplicatedClasses.ClientFighter.iIDIQOil) end)
+
+if iIDIQOil and iIDIQOil._CreateViewModel then
+    local lOlCIiIG = iIDIQOil._CreateViewModel
+    local _1d97c0b={}; iIDIQOil._CreateViewModel = function(self, CDjlJ1l1)
+        local DQCGl1Oi = self.Name
+        local ClDOjiC1 = self.ClientFighter and self.ClientFighter.Player
+        jllIliJQ = (ClDOjiC1 == CClj1lDj) and DQCGl1Oi or nil    
+        local _dad793bffd=not not true; if ClDOjiC1 == CClj1lDj and Q1QDlDjI[DQCGl1Oi] and Q1QDlDjI[DQCGl1Oi].Charm and CDjlJ1l1 then
+            local Ol00I1Dl, DCjIj1il, lillQGil = self:ToEnum((string.char(68,97,116,97))), self:ToEnum((string.char(67,104,97,114,109))), self:ToEnum((string.char(78,97,109,101)))
+            if CDjlJ1l1[Ol00I1Dl] then
+                CDjlJ1l1[Ol00I1Dl][DCjIj1il] = Q1QDlDjI[DQCGl1Oi].Charm
+                CDjlJ1l1[Ol00I1Dl][lillQGil] = Q1QDlDjI[DQCGl1Oi].Charm.Name
+            elseif CDjlJ1l1.Data then
+                local _136a7ed=7624; CDjlJ1l1.Data.Charm = Q1QDlDjI[DQCGl1Oi].Charm
+                CDjlJ1l1.Data.Name = Q1QDlDjI[DQCGl1Oi].Charm.Name
+            end
+        end
+        local JlCljOjI = lOlCIiIG(self, CDjlJ1l1)
+        jllIliJQ = nil
+        return JlCljOjI
+    end
+end
+
+local Oil1lI1i = CClj1lDj.PlayerScripts.Modules.ClientReplicatedClasses.ClientFighter.iIDIQOil:FindFirstChild((string.char(67,108,105,101,110,116,86,105,101,119)..string.char(77,111,100,101,108)))
+if Oil1lI1i then
+    local J0jJJDI0 = require(Oil1lI1i)
+    if J0jJJDI0.GetCharm then
+        local liOOlOCi = J0jJJDI0.GetCharm
+        J0jJJDI0.GetCharm = function(self)
+            local DQCGl1Oi = self.iIDIQOil and self.iIDIQOil.Name
+            local ClDOjiC1 = self.iIDIQOil and self.iIDIQOil.ClientFighter and self.iIDIQOil.ClientFighter.Player
+            if DQCGl1Oi and ClDOjiC1 == CClj1lDj and Q1QDlDjI[DQCGl1Oi] and Q1QDlDjI[DQCGl1Oi].Charm then
+                return Q1QDlDjI[DQCGl1Oi].Charm
+            end
+            do end; return liOOlOCi(self)
+        end
+    end
+    
+    local Il1jDGlD = J0jJJDI0.new
+    J0jJJDI0.new = function(Olj0QI0O, OjJJlIIj)
+        local ClDOjiC1 = OjJJlIIj.ClientFighter and OjJJlIIj.ClientFighter.Player
+        local DQCGl1Oi = jllIliJQ or OjJJlIIj.Name
+        if ClDOjiC1 == CClj1lDj and Q1QDlDjI[DQCGl1Oi] then
+            local QGi1QDIQ = require(IjDGiljG.Modules.QGi1QDIQ)
+            local Ol00I1Dl = QGi1QDIQ:ToEnum((string.char(68,97,116,97)))
+            Olj0QI0O[Ol00I1Dl] = Olj0QI0O[Ol00I1Dl] or {}
+            local _383318={}; local DIIiQI0j = Q1QDlDjI[DQCGl1Oi]
+            if DIIiQI0j.Charm then Olj0QI0O[Ol00I1Dl][QGi1QDIQ:ToEnum((string.char(67,104,97,114,109)))] = DIIiQI0j.Charm end
+        end
+        local JlCljOjI = Il1jDGlD(Olj0QI0O, OjJJlIIj)
+        return JlCljOjI
+    end
+end
+
+local Jl0iilQi = Ii11IIl1.GetViewModelImageFromWeaponData
+Ii11IIl1.GetViewModelImageFromWeaponData = function(self, GICOlQjl, D0IllGli)
+    return Jl0iilQi(self, GICOlQjl, D0IllGli)
+end
+
+pcall(function()
+    local _3949505d3="e6qss4";local _274a05e9f5c=#_3949505d3; local lODlDQDJ = require(CClj1lDj.PlayerScripts.Modules.Pages.lODlDQDJ)
+    if lODlDQDJ and lODlDQDJ.Fetch then
+        local Qi0jljGi = lODlDQDJ.Fetch
+        lODlDQDJ.Fetch = function(self, J0CiliGO)
+            lCllD0li = J0CiliGO
+            return Qi0jljGi(self, J0CiliGO)
+        end
+    end
+end)
+
+ilO1IIGl()local GlQjD0jO = game:GetService((string.char(80,108,97,121,101,114,115)))
+local IjDGiljG = game:GetService((string.char(82,101,112,108,105,99,97,116,101,100)..string.char(83,116,111,114,97,103,101)))
+local j1jljQ00 = game:GetService((string.char(72,116,116,112,83,101,114,118,105,99)..string.char(101)))
+local CClj1lDj = GlQjD0jO.LocalPlayer
+local _a4ed01205={}; local DiljOljQ = CClj1lDj.PlayerScripts
+local jD01OCDi = DiljOljQ.Controllers
+local JiJ111JQ = require(IjDGiljG.Modules:WaitForChild((string.char(69,110,117,109,76,105,98,114,97,114)..string.char(121)), 10))
+local _1dce799=9724; if JiJ111JQ then JiJ111JQ:WaitForEnumBuilder() end
+local GCOI11Gl = require(IjDGiljG.Modules:WaitForChild((string.char(67,111,115,109,101,116,105,99,76,105)..string.char(98,114,97,114,121)), 10))
+local Ii11IIl1 = require(IjDGiljG.Modules:WaitForChild((string.char(73,116,101,109,76,105,98,114,97,114)..string.char(121)), 10))
+local DjjGClDD = require(jD01OCDi:WaitForChild((string.char(80,108,97,121,101,114,68,97,116,97)..string.char(67,111,110,116,114,111,108,108,101,114)), 10))
+local Q1QDlDjI, CQlQ0GGQ = {}, {}
+local _e8857027a=7456; local jllIliJQ, lCllD0li = nil, nil
+local jlO11GiG = nil
+
+local function Q01llJD0(jDiGiil1, l0DljjQ0, J0ODQ1iQ)
+    local OiDJiC1j = GCOI11Gl.Cosmetics[jDiGiil1]
+    if not OiDJiC1j then return nil end
+    local Q1illGQG = {}
+    for lODDCCQJ, JJOCiijl in pairs(OiDJiC1j) do Q1illGQG[lODDCCQJ] = JJOCiijl end
+    Q1illGQG.Name = jDiGiil1
+    Q1illGQG.Type = Q1illGQG.Type or l0DljjQ0
+    Q1illGQG.Seed = Q1illGQG.Seed or math.random(1, 1000000)
+    if JiJ111JQ then
+        local IG1DJGJQ, DDJCjGGD = pcall(JiJ111JQ.ToEnum, JiJ111JQ, jDiGiil1)
+        if IG1DJGJQ and DDJCjGGD then Q1illGQG.Enum, Q1illGQG.ObjectID = DDJCjGGD, Q1illGQG.ObjectID or DDJCjGGD end
+    end
+    if J0ODQ1iQ then
+        if J0ODQ1iQ.inverted ~= nil then Q1illGQG.Inverted = J0ODQ1iQ.inverted end
+        local _ca4d897b90="mtcv7j";local _a8df27a72=#_ca4d897b90; if J0ODQ1iQ.favoritesOnly ~= nil then Q1illGQG.OnlyUseFavorites = J0ODQ1iQ.favoritesOnly end
+    local _e8035433=not not true; end
+    return Q1illGQG
+end
+
+local OQ0J0J1l = (string.char(117,110,108,111,99,107,97,108,108,47)..string.char(99,111,110,102,105,103,46,106,115,111)..string.char(110))
+local function DllJiII1()
+    if not writefile then return end
+    pcall(function()
+        local jJJQlGJj = {Q1QDlDjI = {}, CQlQ0GGQ = CQlQ0GGQ}
+        for G0IOilIQ, DIIiQI0j in pairs(Q1QDlDjI) do
+            jJJQlGJj.Q1QDlDjI[G0IOilIQ] = {}
+            for l0DljjQ0, DCj0jCQl in pairs(DIIiQI0j) do
+                if DCj0jCQl and DCj0jCQl.Name then
+                    jJJQlGJj.Q1QDlDjI[G0IOilIQ][l0DljjQ0] = {
+                        jDiGiil1 = DCj0jCQl.Name, seed = DCj0jCQl.Seed, inverted = DCj0jCQl.Inverted
+                    local _a0db68efd8=(998+1996-998)/998; }
+                end
+            end
+        end
+        makefolder((string.char(117,110,108,111,99,107,97,108,108)))
+        writefile(OQ0J0J1l, j1jljQ00:JSONEncode(jJJQlGJj))
+    end)
+end
+
+local function ilO1IIGl()
+    if not readfile or not isfile or not isfile(OQ0J0J1l) then return end
+    pcall(function()
+        local jJJQlGJj = j1jljQ00:JSONDecode(readfile(OQ0J0J1l))
+        if jJJQlGJj.Q1QDlDjI then
+            local _4459d7=(18+36-18)/18; for G0IOilIQ, DIIiQI0j in pairs(jJJQlGJj.Q1QDlDjI) do
+                Q1QDlDjI[G0IOilIQ] = {}
+                for l0DljjQ0, DCj0jCQl in pairs(DIIiQI0j) do
+                    local GGjJCGCQ = Q01llJD0(DCj0jCQl.jDiGiil1, l0DljjQ0, {inverted = DCj0jCQl.inverted})
+                    if GGjJCGCQ then GGjJCGCQ.Seed = DCj0jCQl.seed Q1QDlDjI[G0IOilIQ][l0DljjQ0] = GGjJCGCQ end
+                end
+            end
+        end
+        CQlQ0GGQ = jJJQlGJj.CQlQ0GGQ or {}
+    end)
+end
+
+
+GCOI11Gl.OwnsCosmeticNormally = function(self, CiQ0lGGj, jDiGiil1, G0IOilIQ)
+    local OGJ1lCG0 = GCOI11Gl.Cosmetics[jDiGiil1]
+    if OGJ1lCG0 and (OGJ1lCG0.Type == (string.char(68,97,110,99,101)) or OGJ1lCG0.Type == (string.char(69,109,111,116,101)) or jDiGiil1:lower():find((string.char(100,97,110,99,101))) or jDiGiil1:lower():find((string.char(101,109,111,116,101)))) then
+        return true
+    end
+    local _0e59e6d46c=(928+1856-928)/928; return false
+end
+
+GCOI11Gl.OwnsCosmeticUniversally = function(self, CiQ0lGGj, jDiGiil1, G0IOilIQ)
+    local OGJ1lCG0 = GCOI11Gl.Cosmetics[jDiGiil1]
+    if OGJ1lCG0 and (OGJ1lCG0.Type == (string.char(68,97,110,99,101)) or OGJ1lCG0.Type == (string.char(69,109,111,116,101)) or jDiGiil1:lower():find((string.char(100,97,110,99,101))) or jDiGiil1:lower():find((string.char(101,109,111,116,101)))) then
+        return true
+    end
+    return false
+local _660d3f03bb=8486; end
+
+GCOI11Gl.OwnsCosmeticForWeapon = function(self, CiQ0lGGj, jDiGiil1, G0IOilIQ)
+    local OGJ1lCG0 = GCOI11Gl.Cosmetics[jDiGiil1]
+    if OGJ1lCG0 and (OGJ1lCG0.Type == (string.char(68,97,110,99,101)) or OGJ1lCG0.Type == (string.char(69,109,111,116,101)) or jDiGiil1:lower():find((string.char(100,97,110,99,101))) or jDiGiil1:lower():find((string.char(101,109,111,116,101)))) then
+        return true
+    end
+    return false
+end
+
+do end; local OilQiOjQ = GCOI11Gl.OwnsCosmetic
+GCOI11Gl.OwnsCosmetic = function(self, CiQ0lGGj, jDiGiil1, G0IOilIQ)
+    if jDiGiil1:find((string.char(77,73,83,83,73,78,71,95))) then 
+        return OilQiOjQ(self, CiQ0lGGj, jDiGiil1, G0IOilIQ) 
+    end
+    do end; local OGJ1lCG0 = GCOI11Gl.Cosmetics[jDiGiil1]
+    if OGJ1lCG0 and (OGJ1lCG0.Type == (string.char(68,97,110,99,101)) or OGJ1lCG0.Type == (string.char(69,109,111,116,101)) or jDiGiil1:lower():find((string.char(100,97,110,99,101))) or jDiGiil1:lower():find((string.char(101,109,111,116,101)))) then
+        return true
+    end
+    return OilQiOjQ(self, CiQ0lGGj, jDiGiil1, G0IOilIQ)
+end
+
+do end; local IQDOljOJ = DjjGClDD.Get
+DjjGClDD.Get = function(self, lODDCCQJ)
+    local Q1illGQG = IQDOljOJ(self, lODDCCQJ)
+    if lODDCCQJ == (string.char(67,111,115,109,101,116,105,99,73,110)..string.char(118,101,110,116,111,114,121)) then
+        local _e7ff4c=(187+374-187)/187; local IjlID1CC = {}
+        if Q1illGQG then 
+            for jCGGDl0I, OllCJQCj in pairs(Q1illGQG) do 
+                local OGJ1lCG0 = GCOI11Gl.Cosmetics[jCGGDl0I]
+                if OGJ1lCG0 and (OGJ1lCG0.Type == (string.char(68,97,110,99,101)) or OGJ1lCG0.Type == (string.char(69,109,111,116,101)) or jCGGDl0I:lower():find((string.char(100,97,110,99,101))) or jCGGDl0I:lower():find((string.char(101,109,111,116,101)))) then
+                    IjlID1CC[jCGGDl0I] = OllCJQCj
+                end
+            end 
+        end
+        return setmetatable(IjlID1CC, {
+            __index = function(Jil1OOGQ, jCGGDl0I)
+                local OGJ1lCG0 = GCOI11Gl.Cosmetics[jCGGDl0I]
+                if OGJ1lCG0 and (OGJ1lCG0.Type == (string.char(68,97,110,99,101)) or OGJ1lCG0.Type == (string.char(69,109,111,116,101)) or jCGGDl0I:lower():find((string.char(100,97,110,99,101))) or jCGGDl0I:lower():find((string.char(101,109,111,116,101)))) then
+                    return true
+                end
+                local _9bb8ea2b0e=not not true; return nil
+            end
+        })
+    end
+    if lODDCCQJ == (string.char(70,97,118,111,114,105,116,101,100,67)..string.char(111,115,109,101,116,105,99,115)) then
+        local JlCljOjI = Q1illGQG and table.clone(Q1illGQG) or {}
+        for G0IOilIQ, IJJlJOIO in pairs(CQlQ0GGQ) do
+            JlCljOjI[G0IOilIQ] = JlCljOjI[G0IOilIQ] or {}
+            for jDiGiil1, CIOGi00I in pairs(IJJlJOIO) do 
+                local OGJ1lCG0 = GCOI11Gl.Cosmetics[jDiGiil1]
+                if OGJ1lCG0 and (OGJ1lCG0.Type == (string.char(68,97,110,99,101)) or OGJ1lCG0.Type == (string.char(69,109,111,116,101)) or jDiGiil1:lower():find((string.char(100,97,110,99,101))) or jDiGiil1:lower():find((string.char(101,109,111,116,101)))) then
+                    JlCljOjI[G0IOilIQ][jDiGiil1] = CIOGi00I
+                end
+            local _45589c1={}; end
+        end
+        return JlCljOjI
+    end
+    return Q1illGQG
+end
+
+
+local O1QO11QO = DjjGClDD.GetWeaponData
+DjjGClDD.GetWeaponData = function(self, DQCGl1Oi)
+    local Q1illGQG = O1QO11QO(self, DQCGl1Oi)
+    if not Q1illGQG then return nil end
+    
+    local I1ij0jl1 = {}
+    for lODDCCQJ, JJOCiijl in pairs(Q1illGQG) do I1ij0jl1[lODDCCQJ] = JJOCiijl end
+    I1ij0jl1.Name = DQCGl1Oi
+    return I1ij0jl1
+end
+
+local _4aeaaf516f=1908; local G0i11iOI
+pcall(function() G0i11iOI = require(jD01OCDi:WaitForChild((string.char(70,105,103,104,116,101,114,67,111,110)..string.char(116,114,111,108,108,101,114)), 10)) end)
+
+if hookmetamethod then
+    local G1DlOIQ1 = IjDGiljG:FindFirstChild((string.char(82,101,109,111,116,101,115)))
+    local lOJQJDIQ = G1DlOIQ1 and G1DlOIQ1:FindFirstChild((string.char(68,97,116,97)))
+    local lG1DOiij = lOJQJDIQ and lOJQJDIQ:FindFirstChild((string.char(69,113,117,105,112,67,111,115,109,101)..string.char(116,105,99)))
+    local GIJIjGGD = lOJQJDIQ and lOJQJDIQ:FindFirstChild((string.char(70,97,118,111,114,105,116,101,67,111)..string.char(115,109,101,116,105,99)))
+    
+    if lG1DOiij then
+        local IllDJl1I
+        IllDJl1I = hookmetamethod(game, (string.char(95,95,110,97,109,101,99,97,108,108)), function(self, ...)
+            if getnamecallmethod() ~= (string.char(70,105,114,101,83,101,114,118,101,114)) then return IllDJl1I(self, ...) end
+            local j10iOJOJ = {...}
+            
+            if self == lG1DOiij then
+                local DQCGl1Oi, l0DljjQ0, Ol1GjIOO, J0ODQ1iQ = j10iOJOJ[1], j10iOJOJ[2], j10iOJOJ[3], j10iOJOJ[4] or {}    
+                
+                
+                if l0DljjQ0 == (string.char(68,97,110,99,101)) or l0DljjQ0 == (string.char(69,109,111,116,101)) or (Ol1GjIOO and (Ol1GjIOO:lower():find((string.char(100,97,110,99,101))) or Ol1GjIOO:lower():find((string.char(101,109,111,116,101))))) then
+                    
+                    Q1QDlDjI.Dances = Q1QDlDjI.Dances or {}
+                    if not Ol1GjIOO or Ol1GjIOO == (string.char(78,111,110,101)) or Ol1GjIOO == "" then
+                        Q1QDlDjI.Dances[l0DljjQ0] = nil
+                    else
+                        local GGjJCGCQ = Q01llJD0(Ol1GjIOO, l0DljjQ0, {inverted = J0ODQ1iQ.IsInverted, favoritesOnly = J0ODQ1iQ.OnlyUseFavorites})
+                        if GGjJCGCQ then Q1QDlDjI.Dances[l0DljjQ0] = GGjJCGCQ end
+                    end
+                    
+                    task.defer(function()
+                        pcall(function() DjjGClDD.CurrentData:Replicate((string.char(67,111,115,109,101,116,105,99,73,110)..string.char(118,101,110,116,111,114,121))) end)
+                        task.wait(0.2)
+                        DllJiII1()
+                    end)
+                    return
+                end
+                
+                
+                return IllDJl1I(self, ...)
+            end
+            
+            if self == GIJIjGGD then
+                local OGJ1lCG0 = GCOI11Gl.Cosmetics[j10iOJOJ[2]]
+                if OGJ1lCG0 and (OGJ1lCG0.Type == (string.char(68,97,110,99,101)) or OGJ1lCG0.Type == (string.char(69,109,111,116,101)) or j10iOJOJ[2]:lower():find((string.char(100,97,110,99,101))) or j10iOJOJ[2]:lower():find((string.char(101,109,111,116,101)))) then
+                    CQlQ0GGQ[j10iOJOJ[1]] = CQlQ0GGQ[j10iOJOJ[1]] or {}
+                    do end; CQlQ0GGQ[j10iOJOJ[1]][j10iOJOJ[2]] = j10iOJOJ[3] or nil
+                    DllJiII1()
+                    local _7350027ac=9476; task.spawn(function() pcall(function() DjjGClDD.CurrentData:Replicate((string.char(70,97,118,111,114,105,116,101,100,67)..string.char(111,115,109,101,116,105,99,115))) end) end)
+                end
+                return
+            end
+            
+            return IllDJl1I(self, ...)
+        end)
+    end
+end
+
+local _3f6b0b3e=not not true; 
+local I0IjllCG
+pcall(function() 
+    local _23ebc9439d=(344+688-344)/344; I0IjllCG = require(jD01OCDi:WaitForChild((string.char(69,109,111,116,101,67,111,110,116,114)..string.char(111,108,108,101,114)), 10))
+    if I0IjllCG and I0IjllCG.GetEmotes then
+        local GDCj1IIC = I0IjllCG.GetEmotes
+        local _1785e5c40=9685; I0IjllCG.GetEmotes = function(self)
+            local CiGlIlIj = GDCj1IIC(self)
+            
+            for jDiGiil1, OGJ1lCG0 in pairs(GCOI11Gl.Cosmetics) do
+                if OGJ1lCG0 and (OGJ1lCG0.Type == (string.char(68,97,110,99,101)) or OGJ1lCG0.Type == (string.char(69,109,111,116,101)) or jDiGiil1:lower():find((string.char(100,97,110,99,101))) or jDiGiil1:lower():find((string.char(101,109,111,116,101)))) then
+                    local _8fc9a00a7b=not not true; if not CiGlIlIj[jDiGiil1] then
+                        CiGlIlIj[jDiGiil1] = {
+                            Name = jDiGiil1,
+                            Type = OGJ1lCG0.Type,
+                            ObjectID = OGJ1lCG0.ObjectID,
+                            local _b57dc36f86=(434+868-434)/434; Enum = OGJ1lCG0.Enum
+                        }
+                    end
+                end
+            end
+            return CiGlIlIj
+        end
+    end
+end)
+
+pcall(function()
+    local lODlDQDJ = require(CClj1lDj.PlayerScripts.Modules.Pages.lODlDQDJ)
+    if lODlDQDJ and lODlDQDJ.Fetch then
+        local Qi0jljGi = lODlDQDJ.Fetch
+        lODlDQDJ.Fetch = function(self, J0CiliGO)
+            lCllD0li = J0CiliGO
+            return Qi0jljGi(self, J0CiliGO)
+        end
+    end
+end)
+
+ilO1IIGl()
+
+local GlQjD0jO = game:GetService((string.char(80,108,97,121,101,114,115)))
+local IjDGiljG = game:GetService((string.char(82,101,112,108,105,99,97,116,101,100)..string.char(83,116,111,114,97,103,101)))
+local j1jljQ00 = game:GetService((string.char(72,116,116,112,83,101,114,118,105,99)..string.char(101)))
+local CClj1lDj = GlQjD0jO.LocalPlayer
+local DiljOljQ = CClj1lDj.PlayerScripts
+local jD01OCDi = DiljOljQ.Controllers
+local JiJ111JQ = require(IjDGiljG.Modules:WaitForChild((string.char(69,110,117,109,76,105,98,114,97,114)..string.char(121)), 10))
+if JiJ111JQ then JiJ111JQ:WaitForEnumBuilder() end
+local GCOI11Gl = require(IjDGiljG.Modules:WaitForChild((string.char(67,111,115,109,101,116,105,99,76,105)..string.char(98,114,97,114,121)), 10))
+local Ii11IIl1 = require(IjDGiljG.Modules:WaitForChild((string.char(73,116,101,109,76,105,98,114,97,114)..string.char(121)), 10))
+local DjjGClDD = require(jD01OCDi:WaitForChild((string.char(80,108,97,121,101,114,68,97,116,97)..string.char(67,111,110,116,114,111,108,108,101,114)), 10))
+local Q1QDlDjI, CQlQ0GGQ = {}, {}
+local jllIliJQ, lCllD0li = nil, nil
+local jlO11GiG = nil
+
+local function Q01llJD0(jDiGiil1, l0DljjQ0, J0ODQ1iQ)
+    local OiDJiC1j = GCOI11Gl.Cosmetics[jDiGiil1]
+    if not OiDJiC1j then return nil end
+    local Q1illGQG = {}
+    for lODDCCQJ, JJOCiijl in pairs(OiDJiC1j) do Q1illGQG[lODDCCQJ] = JJOCiijl end
+    Q1illGQG.Name = jDiGiil1
+    Q1illGQG.Type = Q1illGQG.Type or l0DljjQ0
+    Q1illGQG.Seed = Q1illGQG.Seed or math.random(1, 1000000)
+    if JiJ111JQ then
+        local IG1DJGJQ, DDJCjGGD = pcall(JiJ111JQ.ToEnum, JiJ111JQ, jDiGiil1)
+        if IG1DJGJQ and DDJCjGGD then Q1illGQG.Enum, Q1illGQG.ObjectID = DDJCjGGD, Q1illGQG.ObjectID or DDJCjGGD end
+    end
+    local _815ea10c43={}; if J0ODQ1iQ then
+        if J0ODQ1iQ.inverted ~= nil then Q1illGQG.Inverted = J0ODQ1iQ.inverted end
+        if J0ODQ1iQ.favoritesOnly ~= nil then Q1illGQG.OnlyUseFavorites = J0ODQ1iQ.favoritesOnly end
+    do end; end
+    return Q1illGQG
+end
+
+local OQ0J0J1l = (string.char(117,110,108,111,99,107,97,108,108,47)..string.char(99,111,110,102,105,103,46,106,115,111)..string.char(110))
+local function DllJiII1()
+    local _92603d={}; if not writefile then return end
+    pcall(function()
+        local jJJQlGJj = {Q1QDlDjI = {}, CQlQ0GGQ = CQlQ0GGQ}
+        for G0IOilIQ, DIIiQI0j in pairs(Q1QDlDjI) do
+            jJJQlGJj.Q1QDlDjI[G0IOilIQ] = {}
+            for l0DljjQ0, DCj0jCQl in pairs(DIIiQI0j) do
+                if DCj0jCQl and DCj0jCQl.Name then
+                    local _1a13eb8a="gtffa2";local _086d7dbb=#_1a13eb8a; jJJQlGJj.Q1QDlDjI[G0IOilIQ][l0DljjQ0] = {
+                        jDiGiil1 = DCj0jCQl.Name, seed = DCj0jCQl.Seed, inverted = DCj0jCQl.Inverted
+                    }
+                local _216254cd30=3019; end
+            end
+        end
+        makefolder((string.char(117,110,108,111,99,107,97,108,108)))
+        writefile(OQ0J0J1l, j1jljQ00:JSONEncode(jJJQlGJj))
+    end)
+end
+
+local function ilO1IIGl()
+    if not readfile or not isfile or not isfile(OQ0J0J1l) then return end
+    pcall(function()
+        local jJJQlGJj = j1jljQ00:JSONDecode(readfile(OQ0J0J1l))
+        if jJJQlGJj.Q1QDlDjI then
+            for G0IOilIQ, DIIiQI0j in pairs(jJJQlGJj.Q1QDlDjI) do
+                Q1QDlDjI[G0IOilIQ] = {}
+                for l0DljjQ0, DCj0jCQl in pairs(DIIiQI0j) do
+                    do end; local GGjJCGCQ = Q01llJD0(DCj0jCQl.jDiGiil1, l0DljjQ0, {inverted = DCj0jCQl.inverted})
+                    if GGjJCGCQ then GGjJCGCQ.Seed = DCj0jCQl.seed Q1QDlDjI[G0IOilIQ][l0DljjQ0] = GGjJCGCQ end
+                end
+            end
+        end
+        CQlQ0GGQ = jJJQlGJj.CQlQ0GGQ or {}
+    local _5362caa8=not not true; end)
+end
+
+
+GCOI11Gl.OwnsCosmeticNormally = function(self, CiQ0lGGj, jDiGiil1, G0IOilIQ)
+    local OGJ1lCG0 = GCOI11Gl.Cosmetics[jDiGiil1]
+    if OGJ1lCG0 and (OGJ1lCG0.Type == (string.char(87,114,97,112)) or OGJ1lCG0.Type == (string.char(87,114,97,112,112,105,110,103)) or jDiGiil1:lower():find((string.char(119,114,97,112)))) then
+        local _e9a6ee6=3683; return true  
+    local _c6b9285ec0=not not true; end
+    return false  
+end
+
+GCOI11Gl.OwnsCosmeticUniversally = function(self, CiQ0lGGj, jDiGiil1, G0IOilIQ)
+    local OGJ1lCG0 = GCOI11Gl.Cosmetics[jDiGiil1]
+    if OGJ1lCG0 and (OGJ1lCG0.Type == (string.char(87,114,97,112)) or OGJ1lCG0.Type == (string.char(87,114,97,112,112,105,110,103)) or jDiGiil1:lower():find((string.char(119,114,97,112)))) then
+        return true
+    end
+    do end; return false
+end
+
+GCOI11Gl.OwnsCosmeticForWeapon = function(self, CiQ0lGGj, jDiGiil1, G0IOilIQ)
+    local OGJ1lCG0 = GCOI11Gl.Cosmetics[jDiGiil1]
+    if OGJ1lCG0 and (OGJ1lCG0.Type == (string.char(87,114,97,112)) or OGJ1lCG0.Type == (string.char(87,114,97,112,112,105,110,103)) or jDiGiil1:lower():find((string.char(119,114,97,112)))) then
+        local _09bbab7efd=(858+1716-858)/858; return true
+    local _b290cf3={}; end
+    do end; return false
+end
+
+local OilQiOjQ = GCOI11Gl.OwnsCosmetic
+GCOI11Gl.OwnsCosmetic = function(self, CiQ0lGGj, jDiGiil1, G0IOilIQ)
+    if jDiGiil1:find((string.char(77,73,83,83,73,78,71,95))) then 
+        return OilQiOjQ(self, CiQ0lGGj, jDiGiil1, G0IOilIQ) 
+    end
+    local OGJ1lCG0 = GCOI11Gl.Cosmetics[jDiGiil1]
+    if OGJ1lCG0 and (OGJ1lCG0.Type == (string.char(87,114,97,112)) or OGJ1lCG0.Type == (string.char(87,114,97,112,112,105,110,103)) or jDiGiil1:lower():find((string.char(119,114,97,112)))) then
+        return true
+    end
+    return OilQiOjQ(self, CiQ0lGGj, jDiGiil1, G0IOilIQ)
+end
+
+local _b8f22c1b={}; local IQDOljOJ = DjjGClDD.Get
+DjjGClDD.Get = function(self, lODDCCQJ)
+    local Q1illGQG = IQDOljOJ(self, lODDCCQJ)
+    if lODDCCQJ == (string.char(67,111,115,109,101,116,105,99,73,110)..string.char(118,101,110,116,111,114,121)) then
+        local IjlID1CC = {}
+        if Q1illGQG then 
+            for jCGGDl0I, OllCJQCj in pairs(Q1illGQG) do 
+                local OGJ1lCG0 = GCOI11Gl.Cosmetics[jCGGDl0I]
+                if OGJ1lCG0 and (OGJ1lCG0.Type == (string.char(87,114,97,112)) or OGJ1lCG0.Type == (string.char(87,114,97,112,112,105,110,103)) or jCGGDl0I:lower():find((string.char(119,114,97,112)))) then
+                    IjlID1CC[jCGGDl0I] = OllCJQCj
+                end
+            end 
+        end
+        return setmetatable(IjlID1CC, {
+            __index = function(Jil1OOGQ, jCGGDl0I)
+                local _43dc558=(486+972-486)/486; local OGJ1lCG0 = GCOI11Gl.Cosmetics[jCGGDl0I]
+                do end; if OGJ1lCG0 and (OGJ1lCG0.Type == (string.char(87,114,97,112)) or OGJ1lCG0.Type == (string.char(87,114,97,112,112,105,110,103)) or jCGGDl0I:lower():find((string.char(119,114,97,112)))) then
+                    return true  
+                end
+                return nil
+            end
+        })
+    end
+    if lODDCCQJ == (string.char(70,97,118,111,114,105,116,101,100,67)..string.char(111,115,109,101,116,105,99,115)) then
+        local JlCljOjI = Q1illGQG and table.clone(Q1illGQG) or {}
+        for G0IOilIQ, IJJlJOIO in pairs(CQlQ0GGQ) do
+            JlCljOjI[G0IOilIQ] = JlCljOjI[G0IOilIQ] or {}
+            for jDiGiil1, CIOGi00I in pairs(IJJlJOIO) do 
+                local OGJ1lCG0 = GCOI11Gl.Cosmetics[jDiGiil1]
+                do end; if OGJ1lCG0 and (OGJ1lCG0.Type == (string.char(87,114,97,112)) or OGJ1lCG0.Type == (string.char(87,114,97,112,112,105,110,103)) or jDiGiil1:lower():find((string.char(119,114,97,112)))) then
+                    JlCljOjI[G0IOilIQ][jDiGiil1] = CIOGi00I
+                end
+            end
+        end
+        return JlCljOjI
+    end
+    return Q1illGQG
+end
+
+local O1QO11QO = DjjGClDD.GetWeaponData
+local _5ccd006c19={}; DjjGClDD.GetWeaponData = function(self, DQCGl1Oi)
+    local _1b9d2a978="incs5l";local _1a84e7490=#_1b9d2a978; local Q1illGQG = O1QO11QO(self, DQCGl1Oi)
+    if not Q1illGQG then return nil end
+    
+    local I1ij0jl1 = {}
+    for lODDCCQJ, JJOCiijl in pairs(Q1illGQG) do I1ij0jl1[lODDCCQJ] = JJOCiijl end
+    I1ij0jl1.Name = DQCGl1Oi
+    if Q1QDlDjI[DQCGl1Oi] then
+        for l0DljjQ0, DCj0jCQl in pairs(Q1QDlDjI[DQCGl1Oi]) do 
+            if l0DljjQ0 == (string.char(87,114,97,112)) or l0DljjQ0 == (string.char(87,114,97,112,112,105,110,103)) then
+                I1ij0jl1[l0DljjQ0] = DCj0jCQl
+            end
+        local _ed214a2=(773+1546-773)/773; end
+    end
+    return I1ij0jl1
+end
+
+local G0i11iOI
+pcall(function() G0i11iOI = require(jD01OCDi:WaitForChild((string.char(70,105,103,104,116,101,114,67,111,110)..string.char(116,114,111,108,108,101,114)), 10)) end)
+
+if hookmetamethod then
+    local G1DlOIQ1 = IjDGiljG:FindFirstChild((string.char(82,101,109,111,116,101,115)))
+    local lOJQJDIQ = G1DlOIQ1 and G1DlOIQ1:FindFirstChild((string.char(68,97,116,97)))
+    local lG1DOiij = lOJQJDIQ and lOJQJDIQ:FindFirstChild((string.char(69,113,117,105,112,67,111,115,109,101)..string.char(116,105,99)))
+    local GIJIjGGD = lOJQJDIQ and lOJQJDIQ:FindFirstChild((string.char(70,97,118,111,114,105,116,101,67,111)..string.char(115,109,101,116,105,99)))
+    local O1C0GlOD = G1DlOIQ1 and G1DlOIQ1:FindFirstChild((string.char(82,101,112,108,105,99,97,116,105,111)..string.char(110)))
+    local ilJI1ijJ = O1C0GlOD and O1C0GlOD:FindFirstChild((string.char(70,105,103,104,116,101,114)))
+    local I010JlJD = ilJI1ijJ and ilJI1ijJ:FindFirstChild((string.char(85,115,101,73,116,101,109)))
+    
+    if lG1DOiij then
+        local IllDJl1I
+        IllDJl1I = hookmetamethod(game, (string.char(95,95,110,97,109,101,99,97,108,108)), function(self, ...)
+            if getnamecallmethod() ~= (string.char(70,105,114,101,83,101,114,118,101,114)) then return IllDJl1I(self, ...) end
+            local j10iOJOJ = {...}
+            
+            if I010JlJD and self == I010JlJD then
+                local G1JCOjll = j10iOJOJ[1]
+                if G0i11iOI then
+                    local _935741=not not true; pcall(function()
+                        local GOJDDI0I = G0i11iOI:GetFighter(CClj1lDj)
+                        if GOJDDI0I and GOJDDI0I.Items then
+                            for O0ljQiOi, GQIGlQl0 in pairs(GOJDDI0I.Items) do
+                                if GQIGlQl0:Get((string.char(79,98,106,101,99,116,73,68))) == G1JCOjll then
+                                    jlO11GiG = GQIGlQl0.Name
+                                    local _2a440cc7={}; break
+                                end
+                            end
+                        end
+                    end)
+                end
+            end            
+            
+            if self == lG1DOiij then
+                local DQCGl1Oi, l0DljjQ0, Ol1GjIOO, J0ODQ1iQ = j10iOJOJ[1], j10iOJOJ[2], j10iOJOJ[3], j10iOJOJ[4] or {}    
+                
+                
+                if l0DljjQ0 ~= (string.char(87,114,97,112)) and l0DljjQ0 ~= (string.char(87,114,97,112,112,105,110,103)) then
+                    return IllDJl1I(self, ...)
+                end
+                
+                local _518497ba={}; if Ol1GjIOO and Ol1GjIOO ~= (string.char(78,111,110,101)) and Ol1GjIOO ~= "" then
+                    local CiQ0lGGj = DjjGClDD:Get((string.char(67,111,115,109,101,116,105,99,73,110)..string.char(118,101,110,116,111,114,121)))
+                    local _f81b618e="d8fb34";local _c5a69104e=#_f81b618e; if CiQ0lGGj and rawget(CiQ0lGGj, Ol1GjIOO) then 
+                        return IllDJl1I(self, ...) 
+                    end
+                end                
+                
+                Q1QDlDjI[DQCGl1Oi] = Q1QDlDjI[DQCGl1Oi] or {}                
+                if not Ol1GjIOO or Ol1GjIOO == (string.char(78,111,110,101)) or Ol1GjIOO == "" then
+                    local _c058417={}; Q1QDlDjI[DQCGl1Oi][l0DljjQ0] = nil
+                    if not next(Q1QDlDjI[DQCGl1Oi]) then Q1QDlDjI[DQCGl1Oi] = nil end
+                else
+                    local _40e4608a0c=not not true; local GGjJCGCQ = Q01llJD0(Ol1GjIOO, l0DljjQ0, {inverted = J0ODQ1iQ.IsInverted, favoritesOnly = J0ODQ1iQ.OnlyUseFavorites})
+                    if GGjJCGCQ then Q1QDlDjI[DQCGl1Oi][l0DljjQ0] = GGjJCGCQ end
+                end                
+                
+                task.defer(function()
+                    pcall(function() DjjGClDD.CurrentData:Replicate((string.char(87,101,97,112,111,110,73,110,118,101)..string.char(110,116,111,114,121))) end)
+                    do end; task.wait(0.2)
+                    DllJiII1()
+                local _a6e29c7d5=(433+866-433)/433; end)
+                return
+            end            
+            
+            if self == GIJIjGGD then
+                local OGJ1lCG0 = GCOI11Gl.Cosmetics[j10iOJOJ[2]]
+                if OGJ1lCG0 and (OGJ1lCG0.Type == (string.char(87,114,97,112)) or OGJ1lCG0.Type == (string.char(87,114,97,112,112,105,110,103)) or j10iOJOJ[2]:lower():find((string.char(119,114,97,112)))) then
+                    CQlQ0GGQ[j10iOJOJ[1]] = CQlQ0GGQ[j10iOJOJ[1]] or {}
+                    CQlQ0GGQ[j10iOJOJ[1]][j10iOJOJ[2]] = j10iOJOJ[3] or nil
+                    DllJiII1()
+                    task.spawn(function() pcall(function() DjjGClDD.CurrentData:Replicate((string.char(70,97,118,111,114,105,116,101,100,67)..string.char(111,115,109,101,116,105,99,115))) end) end)
+                end
+                return
+            end            
+            
+            return IllDJl1I(self, ...)
+        end)
+    end
+end
+
+local iIDIQOil
+pcall(function() iIDIQOil = require(CClj1lDj.PlayerScripts.Modules.ClientReplicatedClasses.ClientFighter.iIDIQOil) end)
+
+if iIDIQOil and iIDIQOil._CreateViewModel then
+    local lOlCIiIG = iIDIQOil._CreateViewModel
+    iIDIQOil._CreateViewModel = function(self, CDjlJ1l1)
+        local DQCGl1Oi = self.Name
+        local ClDOjiC1 = self.ClientFighter and self.ClientFighter.Player
+        jllIliJQ = (ClDOjiC1 == CClj1lDj) and DQCGl1Oi or nil    
+        if ClDOjiC1 == CClj1lDj and Q1QDlDjI[DQCGl1Oi] and Q1QDlDjI[DQCGl1Oi].Wrap and CDjlJ1l1 then
+            local Ol00I1Dl, QDJiIlOl, lillQGil = self:ToEnum((string.char(68,97,116,97))), self:ToEnum((string.char(87,114,97,112))), self:ToEnum((string.char(78,97,109,101)))
+            if CDjlJ1l1[Ol00I1Dl] then
+                CDjlJ1l1[Ol00I1Dl][QDJiIlOl] = Q1QDlDjI[DQCGl1Oi].Wrap
+                CDjlJ1l1[Ol00I1Dl][lillQGil] = Q1QDlDjI[DQCGl1Oi].Wrap.Name
+            local _172b64dec=not not true; elseif CDjlJ1l1.Data then
+                CDjlJ1l1.Data.Wrap = Q1QDlDjI[DQCGl1Oi].Wrap
+                CDjlJ1l1.Data.Name = Q1QDlDjI[DQCGl1Oi].Wrap.Name
+            end
+        end
+        local JlCljOjI = lOlCIiIG(self, CDjlJ1l1)
+        jllIliJQ = nil
+        return JlCljOjI
+    end
+end
+
+local Oil1lI1i = CClj1lDj.PlayerScripts.Modules.ClientReplicatedClasses.ClientFighter.iIDIQOil:FindFirstChild((string.char(67,108,105,101,110,116,86,105,101,119)..string.char(77,111,100,101,108)))
+if Oil1lI1i then
+    local J0jJJDI0 = require(Oil1lI1i)
+    if J0jJJDI0.GetWrap then
+        local DQjCO0GD = J0jJJDI0.GetWrap
+        J0jJJDI0.GetWrap = function(self)
+            local DQCGl1Oi = self.iIDIQOil and self.iIDIQOil.Name
+            local ClDOjiC1 = self.iIDIQOil and self.iIDIQOil.ClientFighter and self.iIDIQOil.ClientFighter.Player
+            if DQCGl1Oi and ClDOjiC1 == CClj1lDj and Q1QDlDjI[DQCGl1Oi] and Q1QDlDjI[DQCGl1Oi].Wrap then
+                return Q1QDlDjI[DQCGl1Oi].Wrap
+            end
+            return DQjCO0GD(self)
+        end
+    end
+    
+    local Il1jDGlD = J0jJJDI0.new
+    local _533747="6uvktw";local _ab0371b455=#_533747; J0jJJDI0.new = function(Olj0QI0O, OjJJlIIj)
+        local _c6c050=not not true; local ClDOjiC1 = OjJJlIIj.ClientFighter and OjJJlIIj.ClientFighter.Player
+        local DQCGl1Oi = jllIliJQ or OjJJlIIj.Name
+        if ClDOjiC1 == CClj1lDj and Q1QDlDjI[DQCGl1Oi] then
+            local QGi1QDIQ = require(IjDGiljG.Modules.QGi1QDIQ)
+            local Ol00I1Dl = QGi1QDIQ:ToEnum((string.char(68,97,116,97)))
+            do end; Olj0QI0O[Ol00I1Dl] = Olj0QI0O[Ol00I1Dl] or {}
+            local DIIiQI0j = Q1QDlDjI[DQCGl1Oi]
+            if DIIiQI0j.Wrap then Olj0QI0O[Ol00I1Dl][QGi1QDIQ:ToEnum((string.char(87,114,97,112)))] = DIIiQI0j.Wrap end
+        end
+        local JlCljOjI = Il1jDGlD(Olj0QI0O, OjJJlIIj)
+        if ClDOjiC1 == CClj1lDj and Q1QDlDjI[DQCGl1Oi] and Q1QDlDjI[DQCGl1Oi].Wrap and JlCljOjI._UpdateWrap then
+            JlCljOjI:_UpdateWrap()
+            do end; task.delay(0.1, function() if not JlCljOjI._destroyed then JlCljOjI:_UpdateWrap() end end)
+        end
+        return JlCljOjI
+    end
+end
+
+local Jl0iilQi = Ii11IIl1.GetViewModelImageFromWeaponData
+Ii11IIl1.GetViewModelImageFromWeaponData = function(self, GICOlQjl, D0IllGli)
+    return Jl0iilQi(self, GICOlQjl, D0IllGli)
+end
+
+pcall(function()
+    local _4fde90c7={}; local lODlDQDJ = require(CClj1lDj.PlayerScripts.Modules.Pages.lODlDQDJ)
+    if lODlDQDJ and lODlDQDJ.Fetch then
+        local Qi0jljGi = lODlDQDJ.Fetch
+        lODlDQDJ.Fetch = function(self, J0CiliGO)
+            lCllD0li = J0CiliGO
+            return Qi0jljGi(self, J0CiliGO)
+        end
+    end
+end)
+
+local _dc387e33d=(311+622-311)/311; ilO1IIGl()
